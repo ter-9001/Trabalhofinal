@@ -5,10 +5,24 @@
  */
 package Control;
 
+
 /**
  *
  * @author Gabriel
  */
 public class FuncionarioControl {
+    
+    
+     public boolean Cadastrar( String nome, int CPF, int telefone ,int CEP, String Rua, int numero, String ponto_de_referencia )
+    {
+       return true; 
+    }
+
+    public Object getMinhaLista() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    
     
 }

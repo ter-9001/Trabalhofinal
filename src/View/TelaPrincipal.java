@@ -74,6 +74,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         Funcionario.setText("Funcionários");
+        Funcionario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FuncionarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,6 +185,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_PacienteActionPerformed
+
+    private void FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuncionarioActionPerformed
+
+        
+        if(this.status == 0)
+        {
+            CadastroFuncionario cadastrarFuncionario = new CadastroFuncionario();
+            cadastrarFuncionario.setVisible(true);
+        }
+        
+        
+        
+    }//GEN-LAST:event_FuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
