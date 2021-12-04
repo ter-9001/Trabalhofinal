@@ -20,6 +20,9 @@ public class Listar extends javax.swing.JFrame {
     /**
      * Creates new form Listar
      */
+    
+    private String tipo;
+    
     public Listar() {
         initComponents();
     }
@@ -27,7 +30,8 @@ public class Listar extends javax.swing.JFrame {
     public Listar(String tipo, String dados[])
     {
         initComponents();
-        carregarLista(tipo, dados);
+        this.tipo = tipo;
+        carregarLista(dados);
     }
     
     /**
@@ -41,6 +45,8 @@ public class Listar extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
+        Apagar = new javax.swing.JButton();
+        editar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,7 +61,17 @@ public class Listar extends javax.swing.JFrame {
 
             }
         ));
+        Tabela.setShowGrid(true);
         jScrollPane1.setViewportView(Tabela);
+
+        Apagar.setText("Apagar");
+
+        editar.setText("Editar");
+        editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -63,19 +79,44 @@ public class Listar extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE)
+                .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(editar)
+                .addGap(238, 238, 238)
+                .addComponent(Apagar)
+                .addGap(252, 252, 252))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Apagar)
+                    .addComponent(editar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
+
+
+            if(this.tipo == "Medico")
+            {
+                
+            }
+
+
+
+
+
+
+    }//GEN-LAST:event_editarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -113,35 +154,71 @@ public class Listar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Apagar;
     private javax.swing.JTable Tabela;
+    private javax.swing.JButton editar;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
     
-    private void carregarLista(String tipo, String[] dados) {
+    private void carregarLista(String[] dados) {
         
-//        String[] columnNames = {"First Name",
-//                        "Last Name"};
-//        
-//        String[] [] data = {{ "Gabriel" , "Martins" }, {"bebe", "fofo"}};
 
 
     // Nome,CRM, Telefone, Especialidade, Periodo de Atendimento
 
-       if(tipo == "Medico")
+       if(this.tipo == "Medico")
+       {
+           DefaultTableModel modelo = (DefaultTableModel) this.Tabela.getModel();
+           modelo.setColumnCount(5);
+           
+           
+           
+           this.Tabela.setAutoResizeMode( JTable.AUTO_RESIZE_ALL_COLUMNS);
+           this.Tabela.setMaximumSize(null);
+           
+           
+           
+           
+           this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("CRM");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(2).setHeaderValue("Telefone");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(3).setHeaderValue("Especialidade");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(4).setHeaderValue("Período de Atendimento");
+       }
+       
+       //Nome, endereço, telefone, data de nascimento
+       
+       if(this.tipo == "Paciente")
        {
            DefaultTableModel modelo = (DefaultTableModel) this.Tabela.getModel();
            modelo.setColumnCount(5);
        
            this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("Endereço");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(2).setHeaderValue("Telefone");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(3).setHeaderValue("Data de Nascimento");
+           
+       }
+       
+       
+       
+       //Nome, CPF, telefone, Rua, Numero, Cep
+       
+       if(this.tipo == "Funcionário")
+       {
+           DefaultTableModel modelo = (DefaultTableModel) this.Tabela.getModel();
+           modelo.setColumnCount(5);
+       
            this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
-           this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
-           this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
-           this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("CRM");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(2).setHeaderValue("Telefone");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(3).setHeaderValue("Rua");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(4).setHeaderValue("Número");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(5).setHeaderValue("CEP");
        }
        
       
-        
        
        
        
