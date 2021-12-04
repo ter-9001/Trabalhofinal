@@ -48,12 +48,14 @@ public class ProcurarMedico extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        CRM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "selecione" }));
         CRM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CRMActionPerformed(evt);
             }
         });
 
+        nome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "selecione" }));
         nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeActionPerformed(evt);
@@ -107,7 +109,7 @@ public class ProcurarMedico extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(Procurar)
                 .addGap(39, 39, 39))
         );
@@ -118,7 +120,7 @@ public class ProcurarMedico extends javax.swing.JFrame {
     
     private void CarregarDados()
     {
-        String linhasMatriz[][] = {{"Gabriel", "01"}, {"Jessica", "02"}};                //controlador.getMinhaMatrizTexto();
+        String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
         for (int i = 0; i < linhasMatriz.length; i++) {
             
             CRM.addItem(linhasMatriz [i] [1]);
@@ -140,8 +142,47 @@ public class ProcurarMedico extends javax.swing.JFrame {
     private void ProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcurarActionPerformed
 
         
-        JOptionPane.showMessageDialog(null, CRM.getSelectedItem().toString());
+        if(CRM.getSelectedItem().toString() != "selecione" && nome.getSelectedItem().toString() != "selecione")
+        {
+            JOptionPane.showMessageDialog(null, "Selecione CRM ou Nome \n (Não é possível chamar os dois)");
+        }
         
+        
+        if(CRM.getSelectedItem().toString() == "selecione" && nome.getSelectedItem().toString() == "selecione")
+        {
+            JOptionPane.showMessageDialog(null, "Selecione CRM ou Nome");
+        }
+        
+        if(CRM.getSelectedItem().toString() != "selecione")
+        {
+             String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
+            for (int i = 0; i < linhasMatriz.length; i++) {
+            
+                if(linhasMatriz [i] [1] == CRM.getSelectedItem().toString())
+                {
+                    
+                }
+            
+            }
+            
+        }
+        
+        
+        
+        if(nome.getSelectedItem().toString() != "selecione")
+        {
+            String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
+            for (int i = 0; i < linhasMatriz.length; i++) {
+            
+                
+                if(linhasMatriz [i] [0] == nome.getSelectedItem().toString())
+                {
+                    
+                }
+            
+            
+            }
+        }
         
         
         
