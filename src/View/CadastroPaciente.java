@@ -163,8 +163,8 @@ public class CadastroPaciente extends javax.swing.JFrame {
                   telefone = Integer.parseInt(this.Telefone.getText());
                 }
             
-                if (this.data_de_nascimento.getText().length() == 6) {
-                throw new Mensagens("Data de Nascimento deve conter 6 caracteres.");
+                if (this.data_de_nascimento.getText().length() == 9) {
+                throw new Mensagens("Data de Nascimento deve conter 8 caracteres.");
                 } else {
                    data = Integer.parseInt(this.data_de_nascimento.getText());
                 }
