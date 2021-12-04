@@ -176,7 +176,7 @@ public class CadastroMedico extends javax.swing.JFrame {
             String periodoDeAtendimento = "";
             
             
-              if (this.nome.getText().length() < 2) {
+            if (this.nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
             } else {
                 nome = this.nome.getText();
@@ -231,7 +231,7 @@ public class CadastroMedico extends javax.swing.JFrame {
         } catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
-            JOptionPane.showMessageDialog(null, "Deve-se até 10 digitos numeriocos \n nos campos: CRM e Telefone");
+            JOptionPane.showMessageDialog(null, "Deve-se digitar até 10 digitos numeriocos \n nos campos: CRM e Telefone");
         } 
 //catch (SQLException ex) {
 ////            

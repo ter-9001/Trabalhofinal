@@ -6,6 +6,7 @@
 package View;
 
 import javax.swing.JOptionPane;
+import Control.PacienteControl;
 
 /**
  *
@@ -16,6 +17,9 @@ public class CadastroPaciente extends javax.swing.JFrame {
     /**
      * Creates new form CadastroPaciente
      */
+    
+     private PacienteControl controlador;
+    
     public CadastroPaciente() {
         initComponents();
     }
@@ -33,11 +37,11 @@ public class CadastroPaciente extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         nome = new javax.swing.JTextField();
         Cadastrar = new javax.swing.JButton();
-        CRM = new javax.swing.JTextField();
+        Endereço = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        data_de_nascimento = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,7 +51,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Data de Nascimento");
+        jLabel4.setText("Data de Nascimento (DDMMYYYY)");
 
         nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,9 +66,9 @@ public class CadastroPaciente extends javax.swing.JFrame {
             }
         });
 
-        CRM.addActionListener(new java.awt.event.ActionListener() {
+        Endereço.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CRMActionPerformed(evt);
+                EndereçoActionPerformed(evt);
             }
         });
 
@@ -93,8 +97,8 @@ public class CadastroPaciente extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
-                            .addComponent(CRM, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Endereço, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(data_de_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -107,7 +111,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CRM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Endereço, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -115,7 +119,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(data_de_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(Cadastrar)
                 .addContainerGap())
@@ -133,13 +137,53 @@ public class CadastroPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_nomeActionPerformed
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
-
+            try
+            {
+                String nome = "";
+                String endereço = "";
+                int telefone;
+                int data;
+                
+                if (this.nome.getText().length() < 2) {
+                throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
+                } else {
+                    nome = this.nome.getText();
+                }
+                
+                if (this.Endereço.getText().length() < 2) {
+                throw new Mensagens("Endereço deve conter ao menos 2 caracteres.");
+                } else {
+                    endereço = this.Endereço.getText();
+                }
+                
+                if (this.Telefone.getText().length() < 6) {
+                throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
+                } else {
+                  telefone = Integer.parseInt(this.Telefone.getText());
+                }
+            
+                if (this.data_de_nascimento.getText().length() == 6) {
+                throw new Mensagens("Data de Nascimento deve conter 6 caracteres.");
+                } else {
+                   data = Integer.parseInt(this.data_de_nascimento.getText());
+                }
+                
+                
+                
+            }catch (Mensagens erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+            } catch (NumberFormatException erro2) {
+            JOptionPane.showMessageDialog(null, "Deve-se digitar somente digitos numericos \n nos campos: Telefone e Data de Nascimento");
+            } 
+            
+            
+            
 
     }//GEN-LAST:event_CadastrarActionPerformed
 
-    private void CRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CRMActionPerformed
+    private void EndereçoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EndereçoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CRMActionPerformed
+    }//GEN-LAST:event_EndereçoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,10 +221,10 @@ public class CadastroPaciente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CRM;
     private javax.swing.JButton Cadastrar;
+    private javax.swing.JTextField Endereço;
     private javax.swing.JTextField Telefone;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
+    private javax.swing.JFormattedTextField data_de_nascimento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
