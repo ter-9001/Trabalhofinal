@@ -163,7 +163,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
             if(this.status == 1)
             {
-                // Procurar
+                ProcurarMedico procurarMedico = new ProcurarMedico();
+                procurarMedico.setVisible(true);
             }
 
 

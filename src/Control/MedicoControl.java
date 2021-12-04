@@ -20,6 +20,10 @@ public class MedicoControl {
     public Object getMinhaLista() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public String[][] getMinhaMatrizTexto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
