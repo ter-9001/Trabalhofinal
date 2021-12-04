@@ -123,8 +123,8 @@ public class ProcurarMedico extends javax.swing.JFrame {
         String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
         for (int i = 0; i < linhasMatriz.length; i++) {
             
-            CRM.addItem(linhasMatriz [i] [1]);
-            nome.addItem(linhasMatriz [i] [0]);
+            CRM.addItem(linhasMatriz [i] [2]);
+            nome.addItem(linhasMatriz [i] [1]);
         
         }
     }
@@ -158,8 +158,9 @@ public class ProcurarMedico extends javax.swing.JFrame {
              String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
             for (int i = 0; i < linhasMatriz.length; i++) {
             
-                if(linhasMatriz [i] [1] == CRM.getSelectedItem().toString())
+                if(linhasMatriz [i] [2] == CRM.getSelectedItem().toString())
                 {
+                    Listar listar = new Listar("Medico", linhasMatriz [i] );
                     
                 }
             
@@ -175,7 +176,7 @@ public class ProcurarMedico extends javax.swing.JFrame {
             for (int i = 0; i < linhasMatriz.length; i++) {
             
                 
-                if(linhasMatriz [i] [0] == nome.getSelectedItem().toString())
+                if(linhasMatriz [i] [1] == nome.getSelectedItem().toString())
                 {
                     
                 }

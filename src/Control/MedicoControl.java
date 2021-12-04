@@ -22,7 +22,16 @@ public class MedicoControl {
     }
 
     public String[][] getMinhaMatrizTexto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        
+        String [][] dado = { {"0", "Gabriel", "098901" ,"Nerologia"}, { "1" , "Bebe", "0891234" ,"Fofurogia"} };
+        return dado;
+        
+        
+        
+        
+        
+        
     }
     
     
