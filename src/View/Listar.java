@@ -6,6 +6,10 @@
 package View;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+
 
 /**
  *
@@ -23,7 +27,7 @@ public class Listar extends javax.swing.JFrame {
     public Listar(String tipo, String dados[])
     {
         initComponents();
-        JOptionPane.showMessageDialog(null, dados[0]);
+        carregarLista(tipo, dados);
     }
     
     /**
@@ -112,4 +116,34 @@ public class Listar extends javax.swing.JFrame {
     private javax.swing.JTable Tabela;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    
+    private void carregarLista(String tipo, String[] dados) {
+        
+//        String[] columnNames = {"First Name",
+//                        "Last Name"};
+//        
+//        String[] [] data = {{ "Gabriel" , "Martins" }, {"bebe", "fofo"}};
+
+
+    // Nome,CRM, Telefone, Especialidade, Periodo de Atendimento
+
+       if(tipo == "Medico")
+       {
+           DefaultTableModel modelo = (DefaultTableModel) this.Tabela.getModel();
+           modelo.setColumnCount(5);
+       
+           this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
+       }
+       
+      
+        
+       
+       
+       
+    }
 }

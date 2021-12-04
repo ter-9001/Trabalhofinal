@@ -24,7 +24,7 @@ public class MedicoControl {
     public String[][] getMinhaMatrizTexto() {
         
         
-        String [][] dado = { {"0", "Gabriel", "098901" ,"Nerologia"}, { "1" , "Bebe", "0891234" ,"Fofurogia"} };
+        String [][] dado = { {"0", "Gabriel", "098901" ,"Nerologia"}, { "1" , "Maria", "0891234" ,"Cardiologia"} };
         return dado;
         
         

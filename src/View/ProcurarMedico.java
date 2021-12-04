@@ -161,7 +161,7 @@ public class ProcurarMedico extends javax.swing.JFrame {
                 if(linhasMatriz [i] [2] == CRM.getSelectedItem().toString())
                 {
                     Listar listar = new Listar("Medico", linhasMatriz [i] );
-                    
+                    listar.setVisible(true);
                 }
             
             }
