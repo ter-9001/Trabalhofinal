@@ -27,7 +27,7 @@ public class Listar extends javax.swing.JFrame {
         initComponents();
     }
 
-    public Listar(String tipo, String dados[])
+    public Listar(String tipo, String dados [])
     {
         initComponents();
         this.tipo = tipo;
@@ -106,9 +106,18 @@ public class Listar extends javax.swing.JFrame {
     private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
 
 
+        // Nome,CRM, Telefone, Especialidade, Periodo de Atendimento
+
+        
+        
             if(this.tipo == "Medico")
             {
-                
+                    String nome = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString();
+                    String CRM = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString();
+                    String Telefone = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString();
+                    String Especialidade = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString();
+                    String PeriododeAtendimento = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 5).toString();
+
             }
 
 
@@ -161,15 +170,15 @@ public class Listar extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     
-    private void carregarLista(String[] dados) {
+    private void carregarLista(String[]  dados) {
         
 
+        DefaultTableModel modelo = (DefaultTableModel) this.Tabela.getModel();
 
     // Nome,CRM, Telefone, Especialidade, Periodo de Atendimento
 
        if(this.tipo == "Medico")
        {
-           DefaultTableModel modelo = (DefaultTableModel) this.Tabela.getModel();
            modelo.setColumnCount(5);
            
            
@@ -182,8 +191,8 @@ public class Listar extends javax.swing.JFrame {
            
            this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
            this.Tabela.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("CRM");
-           this.Tabela.getTableHeader().getColumnModel().getColumn(2).setHeaderValue("Telefone");
-           this.Tabela.getTableHeader().getColumnModel().getColumn(3).setHeaderValue("Especialidade");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(2).setHeaderValue("Especialidade");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(3).setHeaderValue("Telefone");
            this.Tabela.getTableHeader().getColumnModel().getColumn(4).setHeaderValue("Período de Atendimento");
        }
        
@@ -191,7 +200,6 @@ public class Listar extends javax.swing.JFrame {
        
        if(this.tipo == "Paciente")
        {
-           DefaultTableModel modelo = (DefaultTableModel) this.Tabela.getModel();
            modelo.setColumnCount(5);
        
            this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
@@ -207,17 +215,29 @@ public class Listar extends javax.swing.JFrame {
        
        if(this.tipo == "Funcionário")
        {
-           DefaultTableModel modelo = (DefaultTableModel) this.Tabela.getModel();
            modelo.setColumnCount(5);
        
            this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
-           this.Tabela.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("CRM");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("CPF");
            this.Tabela.getTableHeader().getColumnModel().getColumn(2).setHeaderValue("Telefone");
            this.Tabela.getTableHeader().getColumnModel().getColumn(3).setHeaderValue("Rua");
            this.Tabela.getTableHeader().getColumnModel().getColumn(4).setHeaderValue("Número");
            this.Tabela.getTableHeader().getColumnModel().getColumn(5).setHeaderValue("CEP");
        }
        
+       
+       String [] dados2 = new String [dados.length -1];
+       
+       
+        for (int i = 1; i < dados.length; i++) {
+                
+            dados2[i-1] = dados[i];
+        }
+
+        
+                
+         modelo.addRow(dados2);
+         
       
        
        
