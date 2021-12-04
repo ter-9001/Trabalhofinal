@@ -22,6 +22,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
     
     public CadastroPaciente() {
         initComponents();
+        this.controlador = new PacienteControl();
     }
 
     /**
@@ -139,21 +140,21 @@ public class CadastroPaciente extends javax.swing.JFrame {
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
             try
             {
-                String nome = "";
-                String endereço = "";
+                String nome1 = "";
+                String endereço1 = "";
                 int telefone;
                 int data;
                 
                 if (this.nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
                 } else {
-                    nome = this.nome.getText();
+                    nome1 = this.nome.getText();
                 }
                 
                 if (this.Endereço.getText().length() < 2) {
                 throw new Mensagens("Endereço deve conter ao menos 2 caracteres.");
                 } else {
-                    endereço = this.Endereço.getText();
+                    endereço1 = this.Endereço.getText();
                 }
                 
                 if (this.Telefone.getText().length() < 6) {
@@ -170,12 +171,26 @@ public class CadastroPaciente extends javax.swing.JFrame {
                 
                 
                 
+                if (this.controlador.Cadastrar(nome1, endereço1 , telefone, data)) {
+                    JOptionPane.showMessageDialog(rootPane, "Aluno Cadastrado com Sucesso!");
+
+                    // limpa campos da interface
+                    this.nome.setText("");
+                    this.Endereço.setText("");
+                    this.data_de_nascimento.setText("");
+                    this.Telefone.setText("");
+
+                    }
+
+                System.out.println(this.controlador.getMinhaLista().toString());
+
+                
+                
             }catch (Mensagens erro) {
             JOptionPane.showMessageDialog(null, erro.getMessage());
             } catch (NumberFormatException erro2) {
             JOptionPane.showMessageDialog(null, "Deve-se digitar somente digitos numericos \n nos campos: Telefone e Data de Nascimento");
             } 
-            
             
             
 
