@@ -212,7 +212,7 @@ public class CadastroMedico extends javax.swing.JFrame {
             
             
              if (this.controlador.Cadastrar(nome, crm, especialidade, telefone, periodoDeAtendimento)) {
-                JOptionPane.showMessageDialog(rootPane, "Aluno Cadastrado com Sucesso!");
+                JOptionPane.showMessageDialog(rootPane, "Médico Cadastrado com Sucesso!");
 
                 // limpa campos da interface
                 this.nome.setText("");

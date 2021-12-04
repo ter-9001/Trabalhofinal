@@ -163,7 +163,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
                   telefone = Integer.parseInt(this.Telefone.getText());
                 }
             
-                if (this.data_de_nascimento.getText().length() == 9) {
+                if (this.data_de_nascimento.getText().length() != 10) {
                 throw new Mensagens("Data de Nascimento deve conter 8 caracteres.");
                 } else {
                    data = Integer.parseInt(this.data_de_nascimento.getText());
@@ -172,7 +172,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
                 
                 
                 if (this.controlador.Cadastrar(nome1, endereço1 , telefone, data)) {
-                    JOptionPane.showMessageDialog(rootPane, "Aluno Cadastrado com Sucesso!");
+                    JOptionPane.showMessageDialog(rootPane, "Paciente Cadastrado com Sucesso!");
 
                     // limpa campos da interface
                     this.nome.setText("");
