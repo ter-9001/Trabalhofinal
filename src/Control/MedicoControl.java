@@ -33,6 +33,14 @@ public class MedicoControl {
         
         
     }
+
+    public boolean Editar(int id, String nome, int CRM, String Especialidade, int telefone ,String periodo_de_atendimento) {
+
+        
+
+
+     return true;
+    }
     
     
     

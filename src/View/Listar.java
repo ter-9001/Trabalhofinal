@@ -5,6 +5,7 @@
  */
 package View;
 
+import Control.MedicoControl;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -22,16 +23,17 @@ public class Listar extends javax.swing.JFrame {
      */
     
     private String tipo;
-    
-    public Listar() {
-        initComponents();
-    }
+    private String[]  dados; 
+    private MedicoControl controladorMedico; 
+            
 
     public Listar(String tipo, String dados [])
     {
         initComponents();
         this.tipo = tipo;
-        carregarLista(dados);
+        this.dados = dados;
+        carregarLista();
+        controladorMedico = new MedicoControl();
     }
     
     /**
@@ -110,17 +112,45 @@ public class Listar extends javax.swing.JFrame {
 
         
         
-            if(this.tipo == "Medico")
+            try
             {
-                    String nome = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString();
-                    String CRM = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString();
-                    String Telefone = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString();
-                    String Especialidade = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString();
-                    String PeriododeAtendimento = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 5).toString();
+                            if(this.tipo == "Medico")
+                            {
+                            String nome = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString();
+                            String CRM = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString();
+                            String Telefone = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString();
+                            String Especialidade = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString();
+                            String PeriododeAtendimento = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 5).toString();
 
-            }
+
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString().length() < 2) {
+                                            throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
+                                    } else {
+                                        nome = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString();
+                                    }
+                            
+                            
+                            
+                                    if(this.controlador.Editar(Integer.parseInt(this.dados[0]), nome, Integer.parseInt(CRM), Especialidade, Integer.parseInt(Telefone) ,PeriododeAtendimento)) {
+
+                                         JOptionPane.showMessageDialog(rootPane, "Medico Alterado com Sucesso!");
+
+                                    }   
 
 
+
+                        }
+                
+                      this.controladorMedico.getMinhaLista().toString();
+            } catch (Mensagens erro) {
+                JOptionPane.showMessageDialog(null, erro.getMessage());
+            } catch (NumberFormatException erro2) {
+                JOptionPane.showMessageDialog(null, "Informe um n�mero.");
+            } finally {
+                carregarLista();
+            }  
+            
+            
 
 
 
@@ -170,7 +200,7 @@ public class Listar extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     
-    private void carregarLista(String[]  dados) {
+    private void carregarLista() {
         
 
         DefaultTableModel modelo = (DefaultTableModel) this.Tabela.getModel();
