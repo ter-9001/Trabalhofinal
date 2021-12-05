@@ -19,7 +19,13 @@ public class FuncionarioControl {
     }
 
     public Object getMinhaLista() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         
+        
+        String [] [] obj = {{"0","Funcionário1", "1234"}, {"1","Funcionário2", "4534"}};
+
+       
+         return obj;
+
     }
 
     public void apagar(String dado) {
@@ -31,7 +37,12 @@ public class FuncionarioControl {
     }
 
     public String[][] getMinhaMatrizTexto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        String [] [] obj = {{"0","Funcionário1", "1234"}, {"1","Funcionário2", "4534"}};
+
+       
+         return obj;
+
     }
     
     

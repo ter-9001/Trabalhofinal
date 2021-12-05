@@ -17,8 +17,12 @@ public class PacienteControl {
        return true; 
     }
 
-    public Object getMinhaLista() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String [] [] getMinhaLista() {
+
+        String [] [] obj = {{"0","Paciente1", "5678"}, {"1","Paciente2", "4534"}};
+
+       
+         return obj;
     }
 
     public void apagar(String dado) {
@@ -30,7 +34,11 @@ public class PacienteControl {
     }
 
     public String[][] getMinhaMatrizTexto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+        String [] [] obj = {{"0","Paciente1", "5678"}, {"1","Paciente2", "4534"}};
+
+       
+         return obj;
     }
     
     

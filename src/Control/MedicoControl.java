@@ -17,22 +17,18 @@ public class MedicoControl {
        return true; 
     }
 
-    public Object getMinhaLista() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public String[][] getMinhaMatrizTexto() {
-        
+    public String [] [] getMinhaLista() {
         
         String [][] dado = { {"0", "Gabriel", "098901" ,"Nerologia"}, { "1" , "Maria", "0891234" ,"Cardiologia"} };
         return dado;
         
-        
-        
-        
-        
-        
     }
+
+    public String [] [] getMinhaMatrizTexto() {
+        
+        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template.
+      }
 
     public boolean Editar(int id, String nome, int CRM, String Especialidade, int telefone ,String periodo_de_atendimento) {
 

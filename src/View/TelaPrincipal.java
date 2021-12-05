@@ -182,6 +182,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             cadastrarPaciente.setVisible(true);
         }
         
+        if(this.status == 1)
+        {
+                ProcurarPaciente procurarPaciente = new ProcurarPaciente();
+                procurarPaciente.setVisible(true);
+        }
+        
         
         
         
@@ -196,6 +202,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
             cadastrarFuncionario.setVisible(true);
         }
         
+        
+        if(this.status == 1)
+        {
+                ProcurarFuncionario procurarFuncionario = new ProcurarFuncionario();
+                procurarFuncionario.setVisible(true);
+        }
         
         
     }//GEN-LAST:event_FuncionarioActionPerformed

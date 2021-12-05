@@ -101,7 +101,7 @@ public class ProcurarPaciente extends javax.swing.JFrame {
 
                 if(linhasMatriz [i] [1] == nome.getSelectedItem().toString())
                 {
-                    Listar listar = new Listar("Funcionário", linhasMatriz [i] );
+                    Listar listar = new Listar("Paciente", linhasMatriz [i] );
                     listar.setVisible(true);
 
                 }
