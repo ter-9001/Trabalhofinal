@@ -5,7 +5,9 @@
  */
 package View;
 
+import Control.FuncionarioControl;
 import Control.MedicoControl;
+import Control.PacienteControl;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -25,8 +27,15 @@ public class Listar extends javax.swing.JFrame {
     private String tipo;
     private String[]  dados; 
     private MedicoControl controladorMedico; 
-            
+    private PacienteControl controladorPaciente; 
+    private FuncionarioControl controladorFuncionario; 
+    
+    public Listar()
+    {
+        
+    }
 
+    
     public Listar(String tipo, String dados [])
     {
         initComponents();
@@ -34,6 +43,8 @@ public class Listar extends javax.swing.JFrame {
         this.dados = dados;
         carregarLista();
         controladorMedico = new MedicoControl();
+        controladorPaciente = new PacienteControl();
+        controladorFuncionario = new FuncionarioControl();
     }
     
     /**
@@ -67,6 +78,11 @@ public class Listar extends javax.swing.JFrame {
         jScrollPane1.setViewportView(Tabela);
 
         Apagar.setText("Apagar");
+        Apagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApagarActionPerformed(evt);
+            }
+        });
 
         editar.setText("Editar");
         editar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,20 +102,20 @@ public class Listar extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(editar)
-                .addGap(238, 238, 238)
+                .addGap(209, 209, 209)
                 .addComponent(Apagar)
-                .addGap(252, 252, 252))
+                .addGap(264, 264, 264))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Apagar)
                     .addComponent(editar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(71, 71, 71))
         );
 
         pack();
@@ -114,7 +130,7 @@ public class Listar extends javax.swing.JFrame {
         
             try
             {
-                            if(this.tipo == "Medico")
+                            if(this.tipo == "Médico")
                             {
                             String nome = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString();
                             String CRM = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString();
@@ -128,10 +144,36 @@ public class Listar extends javax.swing.JFrame {
                                     } else {
                                         nome = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString();
                                     }
+                                    
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString().length() < 2) {
+                                            throw new Mensagens("CRM deve conter ao menos 2 caracteres.");
+                                    } else {
+                                        CRM = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString();
+                                    }
+                                    
+                                    
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString().length() < 2) {
+                                            throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
+                                    } else {
+                                        Telefone = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString();
+                                    }
+                            
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString().length() < 2) {
+                                            throw new Mensagens("Especialidade deve conter ao menos 2 caracteres.");
+                                    } else {
+                                       Especialidade = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString();
+                                    }
+                                    
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 5).toString() != "Manhã" && 
+                                            this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 5).toString() != "Tarde") {
+                                            throw new Mensagens("Período de Atendimento deve ser Manhã ou Tarde");
+                                    } else {
+                                       PeriododeAtendimento = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 5).toString();
+                                    }
+                                    
                             
                             
-                            
-                                    if(this.controlador.Editar(Integer.parseInt(this.dados[0]), nome, Integer.parseInt(CRM), Especialidade, Integer.parseInt(Telefone) ,PeriododeAtendimento)) {
+                                    if(this.controladorMedico.Editar(Integer.parseInt(this.dados[0]), nome, Integer.parseInt(CRM), Especialidade, Integer.parseInt(Telefone) ,PeriododeAtendimento)) {
 
                                          JOptionPane.showMessageDialog(rootPane, "Medico Alterado com Sucesso!");
 
@@ -156,6 +198,33 @@ public class Listar extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_editarActionPerformed
+
+    private void ApagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApagarActionPerformed
+
+
+
+        if(tipo == "Médico")
+        {
+            this.controladorMedico.apagar(dados[0]);
+        }
+
+       
+        if(tipo == "Paciente")
+        {
+            this.controladorPaciente.apagar(dados[0]);
+        } 
+        
+        
+        if(tipo == "Funcionário")
+        {
+            this.controladorFuncionario.apagar(dados[0]);
+        }
+
+
+
+
+
+    }//GEN-LAST:event_ApagarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,17 +273,16 @@ public class Listar extends javax.swing.JFrame {
         
 
         DefaultTableModel modelo = (DefaultTableModel) this.Tabela.getModel();
-
+        modelo.setNumRows(0);
+        
     // Nome,CRM, Telefone, Especialidade, Periodo de Atendimento
 
-       if(this.tipo == "Medico")
+       if(this.tipo == "Médico")
        {
            modelo.setColumnCount(5);
            
            
            
-           this.Tabela.setAutoResizeMode( JTable.AUTO_RESIZE_ALL_COLUMNS);
-           this.Tabela.setMaximumSize(null);
            
            
            

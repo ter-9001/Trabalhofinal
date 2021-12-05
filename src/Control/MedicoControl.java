@@ -41,6 +41,10 @@ public class MedicoControl {
 
      return true;
     }
+
+    public void apagar(String dado) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

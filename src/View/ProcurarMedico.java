@@ -160,7 +160,7 @@ public class ProcurarMedico extends javax.swing.JFrame {
             
                 if(linhasMatriz [i] [2] == CRM.getSelectedItem().toString())
                 {
-                    Listar listar = new Listar("Medico", linhasMatriz [i] );
+                    Listar listar = new Listar("Médico", linhasMatriz [i] );
                     listar.setVisible(true);
                 }
             
@@ -178,7 +178,7 @@ public class ProcurarMedico extends javax.swing.JFrame {
                 
                 if(linhasMatriz [i] [1] == nome.getSelectedItem().toString())
                 {
-                    Listar listar = new Listar("Medico", linhasMatriz [i] );
+                    Listar listar = new Listar("Médico", linhasMatriz [i] );
                     listar.setVisible(true);
         
                 }
