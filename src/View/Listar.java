@@ -132,11 +132,11 @@ public class Listar extends javax.swing.JFrame {
             {
                             if(this.tipo == "Médico")
                             {
-                            String nome = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString();
-                            String CRM = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString();
-                            String Telefone = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString();
-                            String Especialidade = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString();
-                            String PeriododeAtendimento = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 5).toString();
+                            String nome = "";
+                            String CRM = "";
+                            String Telefone = "";
+                            String Especialidade = "";
+                            String PeriododeAtendimento = "";
 
 
                                     if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString().length() < 2) {
@@ -192,10 +192,148 @@ public class Listar extends javax.swing.JFrame {
                 carregarLista();
             }  
             
+       //Nome, endereço, telefone, data de nascimento
             
+                    try
+                    {
+                            if(this.tipo == "Paciente")
+                            {
+                            String nome = "";
+                            String endereço= "";
+                            String Telefone = "";
+                            String datadeNascimento = "";
+                            
+
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString().length() < 2) {
+                                            throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
+                                    } else {
+                                        nome = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString();
+                                    }
+                                    
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString().length() < 2) {
+                                            throw new Mensagens("Endereço deve conter ao menos 2 caracteres.");
+                                    } else {
+                                        endereço = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString();
+                                    }
+                                    
+                                    
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString().length() < 2) {
+                                            throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
+                                    } else {
+                                        Telefone = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString();
+                                    }
+                            
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString().length() != 8) {
+                                            throw new Mensagens("Data de Nascimento deve conter 8 caracteres.");
+                                    } else {
+                                       datadeNascimento = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString();
+                                    }
+                                    
+                                    
+                            
+                            
+                                    if(this.controladorPaciente.Editar(nome, endereço, Integer.parseInt(Telefone), Integer.parseInt(datadeNascimento) )) {
+
+                                         JOptionPane.showMessageDialog(rootPane, "Paciente Alterado com Sucesso!");
+
+                                    }   
 
 
 
+                        }
+
+                                    this.controladorPaciente.getMinhaLista().toString();
+                          } catch (Mensagens erro) {
+                              JOptionPane.showMessageDialog(null, erro.getMessage());
+                          } catch (NumberFormatException erro2) {
+                              JOptionPane.showMessageDialog(null, "Informe um número.");
+                          } finally {
+                              carregarLista();
+                          }
+
+
+                  //Nome, CPF, telefone, Rua, Numero, Cep
+         
+                    
+                  try
+                    {
+                            if(this.tipo == "Funcionário")
+                            {
+                            String nome = "";
+                            String CPF= "";
+                            String Telefone = "";
+                            String Rua = "";
+                            String Numero = "";
+                            String CEP = "";
+                            
+
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString().length() < 2) {
+                                            throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
+                                    } else {
+                                        nome = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString();
+                                    }
+                                    
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString().length() < 2) {
+                                            throw new Mensagens("CPF deve conter ao menos 2 caracteres.");
+                                    } else {
+                                        CPF = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString();
+                                    }
+                                    
+                                    
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString().length() < 2) {
+                                            throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
+                                    } else {
+                                        Telefone = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString();
+                                    }
+                            
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString().length() < 2) {
+                                            throw new Mensagens("Rua deve conter ao menos 2 caracteres.");
+                                    } else {
+                                       Rua = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString();
+                                    }
+                                    
+                                    
+                                    
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 5).toString().length() < 2) {
+                                            throw new Mensagens("Número deve conter ao menos 2 caracteres.");
+                                    } else {
+                                       Numero = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 5).toString();
+                                    }
+                                    
+                                    
+                                    
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 6).toString().length() < 2) {
+                                            throw new Mensagens("CEP deve conter ao menos 2 caracteres.");
+                                    } else {
+                                       CEP = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 6).toString();
+                                    }
+                                    
+                                    
+                                    //Nome, CPF, telefone, Rua, Numero, Cep
+                            
+                                    if(this.controladorFuncionario.Editar(nome, Integer.parseInt(CPF), Integer.parseInt(Telefone), Rua, Integer.parseInt(Numero), 
+                                            Integer.parseInt(CEP))) {
+
+                                         JOptionPane.showMessageDialog(rootPane, "Funcionário Alterado com Sucesso!");
+
+                                    }   
+
+
+
+                        }
+
+                                    this.controladorFuncionario.getMinhaLista().toString();
+                          } catch (Mensagens erro) {
+                              JOptionPane.showMessageDialog(null, erro.getMessage());
+                          } catch (NumberFormatException erro2) {
+                              JOptionPane.showMessageDialog(null, "Informe um número.");
+                          } finally {
+                              carregarLista();
+                        }
+                    
+                    
+                    
+                    
 
     }//GEN-LAST:event_editarActionPerformed
 
@@ -281,12 +419,6 @@ public class Listar extends javax.swing.JFrame {
        {
            modelo.setColumnCount(5);
            
-           
-           
-           
-           
-           
-           
            this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
            this.Tabela.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("CRM");
            this.Tabela.getTableHeader().getColumnModel().getColumn(2).setHeaderValue("Especialidade");
@@ -298,7 +430,7 @@ public class Listar extends javax.swing.JFrame {
        
        if(this.tipo == "Paciente")
        {
-           modelo.setColumnCount(5);
+           modelo.setColumnCount(4);
        
            this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
            this.Tabela.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("Endereço");
@@ -313,7 +445,7 @@ public class Listar extends javax.swing.JFrame {
        
        if(this.tipo == "Funcionário")
        {
-           modelo.setColumnCount(5);
+           modelo.setColumnCount(6);
        
            this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
            this.Tabela.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("CPF");

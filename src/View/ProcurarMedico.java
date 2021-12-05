@@ -145,12 +145,14 @@ public class ProcurarMedico extends javax.swing.JFrame {
         if(CRM.getSelectedItem().toString() != "selecione" && nome.getSelectedItem().toString() != "selecione")
         {
             JOptionPane.showMessageDialog(null, "Selecione CRM ou Nome \n (Não é possível chamar os dois)");
+            return;
         }
         
         
         if(CRM.getSelectedItem().toString() == "selecione" && nome.getSelectedItem().toString() == "selecione")
         {
             JOptionPane.showMessageDialog(null, "Selecione CRM ou Nome");
+            return;
         }
         
         if(CRM.getSelectedItem().toString() != "selecione")
@@ -166,6 +168,8 @@ public class ProcurarMedico extends javax.swing.JFrame {
             
             }
             
+        
+          return;
         }
         
         
@@ -185,6 +189,9 @@ public class ProcurarMedico extends javax.swing.JFrame {
             
             
             }
+        
+        
+           return;
         }
         
         

@@ -25,6 +25,10 @@ public class FuncionarioControl {
     public void apagar(String dado) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public boolean Editar(String nome, int parseInt, int parseInt0, String Rua, int parseInt1, int parseInt2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
