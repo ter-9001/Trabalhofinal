@@ -28,6 +28,10 @@ public class PacienteControl {
     public boolean Editar(String nome, String endereço, int parseInt, int parseInt0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public String[][] getMinhaMatrizTexto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
