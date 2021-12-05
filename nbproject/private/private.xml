@@ -5,10 +5,11 @@
         <group>
             <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/trabalhofinal2/src/View/TelaPrincipal.java</file>
             <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/trabalhofinal2/src/Control/FuncionarioControl.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/trabalhofinal2/src/View/CadastroMedico.java</file>
+            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/trabalhofinal2/src/View/CadastroPaciente.java</file>
             <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/trabalhofinal2/src/View/Listar.java</file>
             <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/trabalhofinal2/src/View/ProcurarMedico.java</file>
             <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/trabalhofinal2/src/Control/MedicoControl.java</file>
-            <file>file:/C:/Users/Gabriel/Documents/NetBeansProjects/trabalhofinal2/src/View/CadastroFuncionario.java</file>
         </group>
     </open-files>
 </project-private>
