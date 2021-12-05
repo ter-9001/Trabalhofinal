@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import View.Mensagens;
 import Control.MedicoControl;
 import static java.lang.Double.parseDouble;
+import javax.swing.JFrame;
 
 /**
  *
@@ -25,6 +26,7 @@ public class CadastroMedico extends javax.swing.JFrame {
 
     public CadastroMedico() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.controlador = new MedicoControl();
     }
 

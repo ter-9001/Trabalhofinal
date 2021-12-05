@@ -7,6 +7,7 @@ package View;
 
 import javax.swing.JOptionPane;
 import Control.PacienteControl;
+import javax.swing.JFrame;
 
 /**
  *
@@ -22,6 +23,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
     
     public CadastroPaciente() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.controlador = new PacienteControl();
     }
 

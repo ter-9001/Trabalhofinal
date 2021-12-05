@@ -6,6 +6,8 @@
 package View;
 
 import Control.PacienteControl;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +23,7 @@ public class ProcurarPaciente extends javax.swing.JFrame {
     
     public ProcurarPaciente() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         controlador = new PacienteControl();
         CarregarDados();
     }
@@ -109,6 +112,10 @@ public class ProcurarPaciente extends javax.swing.JFrame {
             }
 
             return;
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Selecione uma opção!");
         }
     }//GEN-LAST:event_ProcurarActionPerformed
 

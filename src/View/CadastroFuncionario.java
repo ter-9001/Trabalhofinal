@@ -5,6 +5,7 @@
  */
 package View;
 import Control.FuncionarioControl;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 /**
  *
@@ -20,6 +21,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     
     public CadastroFuncionario() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.controlador = new FuncionarioControl();
     }
 

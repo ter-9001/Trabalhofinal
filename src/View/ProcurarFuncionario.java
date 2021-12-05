@@ -6,6 +6,7 @@
 package View;
 
 import Control.FuncionarioControl;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +23,7 @@ public class ProcurarFuncionario extends javax.swing.JFrame {
     
     public ProcurarFuncionario() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         controlador = new FuncionarioControl();
         CarregarDados();
     }

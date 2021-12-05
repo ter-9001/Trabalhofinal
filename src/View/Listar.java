@@ -8,6 +8,7 @@ package View;
 import Control.FuncionarioControl;
 import Control.MedicoControl;
 import Control.PacienteControl;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -39,12 +40,14 @@ public class Listar extends javax.swing.JFrame {
     public Listar(String tipo, String dados [])
     {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.tipo = tipo;
         this.dados = dados;
         carregarLista();
         controladorMedico = new MedicoControl();
         controladorPaciente = new PacienteControl();
         controladorFuncionario = new FuncionarioControl();
+        
     }
     
     /**
