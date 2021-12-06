@@ -133,9 +133,7 @@ public class Listar extends javax.swing.JFrame {
 
         // Nome,CRM, Telefone, Especialidade, Periodo de Atendimento
             
-        this.Tabela.isCellEditable(5,5);
-        
-        
+
             try
             {
                             if(this.tipo == "Médico")
@@ -200,7 +198,7 @@ public class Listar extends javax.swing.JFrame {
                 carregarLista();
             }  
             
-       //Nome, endereço, telefone, data de nascimento
+        //Nome, telefone, endereço, data de nascimento
             
                     try
                     {
@@ -219,20 +217,22 @@ public class Listar extends javax.swing.JFrame {
                                         nome = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString();
                                     }
                                     
+                                    
                                     if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString().length() < 2) {
-                                            throw new Mensagens("Endereço deve conter ao menos 2 caracteres.");
-                                    } else {
-                                        endereço = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString();
-                                    }
-                                    
-                                    
-                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString().length() < 2) {
                                             throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
                                     } else {
-                                        Telefone = Integer.parseInt(this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString());
+                                        Telefone = Integer.parseInt(this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString());
                                         
                                     }
-                            
+                                    
+                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString().length() < 2) {
+                                            throw new Mensagens("Endereço deve conter ao menos 2 caracteres.");
+                                    } else {
+                                        endereço = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString();
+                                    }
+                                    
+                                    
+                                                            
                                     if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString().length() != 8) {
                                             throw new Mensagens("Data de Nascimento deve conter 8 caracteres.");
                                     } else {
@@ -443,15 +443,15 @@ public class Listar extends javax.swing.JFrame {
            this.Tabela.getTableHeader().getColumnModel().getColumn(4).setHeaderValue("Período de Atendimento");
        }
        
-       //Nome, endereço, telefone, data de nascimento
+       //Nome, telefone, endereço, data de nascimento
        
        if(this.tipo == "Paciente")
        {
            modelo.setColumnCount(4);
        
            this.Tabela.getTableHeader().getColumnModel().getColumn(0).setHeaderValue("Nome");
-           this.Tabela.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("Endereço");
-           this.Tabela.getTableHeader().getColumnModel().getColumn(2).setHeaderValue("Telefone");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(1).setHeaderValue("Telefone");
+           this.Tabela.getTableHeader().getColumnModel().getColumn(2).setHeaderValue("Endereço");
            this.Tabela.getTableHeader().getColumnModel().getColumn(3).setHeaderValue("Data de Nascimento");
            
        }
