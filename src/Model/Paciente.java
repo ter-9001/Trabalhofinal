@@ -23,7 +23,7 @@ public class Paciente extends Pessoa {
         this.dao = new PacienteDAO();
     }
 
-    public Paciente(int id, String nome , String telefone, String endereco, Date dataNascimento) {
+    public Paciente(int id, String nome , int telefone, String endereco, Date dataNascimento) {
         super(id, nome, telefone);
         this.endereco = endereco;
         this.rua = rua;

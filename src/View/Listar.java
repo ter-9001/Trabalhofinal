@@ -208,7 +208,7 @@ public class Listar extends javax.swing.JFrame {
                             {
                             String nome = "";
                             String endereço= "";
-                            String Telefone = "";
+                            int Telefone;
                             Date datadeNascimento = new Date();
                             int teste;
                             
@@ -229,8 +229,8 @@ public class Listar extends javax.swing.JFrame {
                                     if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString().length() < 2) {
                                             throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
                                     } else {
-                                        teste = Integer.parseInt(this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString());
-                                        Telefone = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString();
+                                        Telefone = Integer.parseInt(this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString());
+                                        
                                     }
                             
                                     if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString().length() != 8) {

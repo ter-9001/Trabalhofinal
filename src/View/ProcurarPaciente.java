@@ -102,9 +102,12 @@ public class ProcurarPaciente extends javax.swing.JFrame {
             String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
             for (int i = 0; i < linhasMatriz.length; i++) {
 
+                System.out.print("\nfoi\n");
+                
                 if(linhasMatriz [i] [1] == nome.getSelectedItem().toString())
                 {
                     Listar listar = new Listar("Paciente", linhasMatriz [i] );
+                    System.out.print(linhasMatriz[i]);
                     listar.setVisible(true);
 
                 }

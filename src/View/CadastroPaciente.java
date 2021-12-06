@@ -148,7 +148,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
             {
                 String nome1 = "";
                 String endereço1 = "";
-                String telefone;
+                int telefone;
                 Date data = new Date();
                 int teste;
                 
@@ -167,8 +167,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
                 if (this.Telefone.getText().length() < 6) {
                 throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
                 } else {
-                    teste = Integer.parseInt(this.Telefone.getText());
-                    telefone = this.Telefone.getText();
+                    telefone = Integer.parseInt(this.Telefone.getText());
                 }
             
                 if (this.data_de_nascimento.getText().length() != 8) {

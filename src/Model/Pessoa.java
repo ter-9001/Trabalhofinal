@@ -6,12 +6,12 @@ public class Pessoa {
     
     private int id;
     private String nome;
-    private String telefone;
+    private int  telefone;
 
     public Pessoa() {
     }
 
-    public Pessoa(int id, String nome,String telefone) {
+    public Pessoa(int id, String nome,int telefone) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
@@ -35,11 +35,11 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public String getTelefone() {
+    public int getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    public void setTelefone(int telefone) {
         this.telefone = telefone;
         
     }
