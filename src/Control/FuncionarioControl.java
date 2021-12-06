@@ -13,7 +13,7 @@ package Control;
 public class FuncionarioControl {
     
     
-     public boolean Cadastrar( String nome, int CPF, int telefone ,int CEP, String Rua, int numero, String ponto_de_referencia )
+     public boolean Cadastrar( String nome, String CPF, int telefone ,String CEP, String Rua, int numero, String ponto_de_referencia )
     {
        return true; 
     }

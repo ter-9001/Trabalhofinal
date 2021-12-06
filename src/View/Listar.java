@@ -8,6 +8,10 @@ package View;
 import Control.FuncionarioControl;
 import Control.MedicoControl;
 import Control.PacienteControl;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -128,7 +132,8 @@ public class Listar extends javax.swing.JFrame {
 
 
         // Nome,CRM, Telefone, Especialidade, Periodo de Atendimento
-
+            
+        this.Tabela.isCellEditable(5,5);
         
         
             try
@@ -204,7 +209,8 @@ public class Listar extends javax.swing.JFrame {
                             String nome = "";
                             String endereço= "";
                             String Telefone = "";
-                            String datadeNascimento = "";
+                            Date datadeNascimento = new Date();
+                            int teste;
                             
 
                                     if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString().length() < 2) {
@@ -223,19 +229,22 @@ public class Listar extends javax.swing.JFrame {
                                     if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString().length() < 2) {
                                             throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
                                     } else {
+                                        teste = Integer.parseInt(this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString());
                                         Telefone = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString();
                                     }
                             
                                     if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString().length() != 8) {
                                             throw new Mensagens("Data de Nascimento deve conter 8 caracteres.");
                                     } else {
-                                       datadeNascimento = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString();
+                                       teste =  Integer.parseInt(this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString());
+                                       SimpleDateFormat originalFormat = new SimpleDateFormat("ddMMddyyyy");
+                                        datadeNascimento = originalFormat.parse(this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString());
                                     }
                                     
                                     
                             
                             
-                                    if(this.controladorPaciente.Editar(nome, endereço, Integer.parseInt(Telefone), Integer.parseInt(datadeNascimento) )) {
+                                    if(this.controladorPaciente.Editar(nome, endereço, Integer.parseInt(dados[0]) ,Telefone,  datadeNascimento) ) {
 
                                          JOptionPane.showMessageDialog(rootPane, "Paciente Alterado com Sucesso!");
 
@@ -250,7 +259,10 @@ public class Listar extends javax.swing.JFrame {
                               JOptionPane.showMessageDialog(null, erro.getMessage());
                           } catch (NumberFormatException erro2) {
                               JOptionPane.showMessageDialog(null, "Informe um número.");
-                          } finally {
+                          } catch(ParseException ex )
+                            {
+
+                            } finally {
                               carregarLista();
                           }
 
@@ -352,7 +364,7 @@ public class Listar extends javax.swing.JFrame {
        
         if(tipo == "Paciente")
         {
-            this.controladorPaciente.apagar(dados[0]);
+            this.controladorPaciente.Apagar(Integer.parseInt(dados[0]));
         } 
         
         
@@ -415,6 +427,8 @@ public class Listar extends javax.swing.JFrame {
 
         DefaultTableModel modelo = (DefaultTableModel) this.Tabela.getModel();
         modelo.setNumRows(0);
+        modelo.setColumnCount(0);
+        
         
     // Nome,CRM, Telefone, Especialidade, Periodo de Atendimento
 

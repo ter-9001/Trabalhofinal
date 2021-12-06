@@ -194,12 +194,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             String nome1 = "";
             String endereço1 = "";
             int telefone;
-            int CEP1;
+            String CEP1;
             String Rua1 = "";
             int numero1;
             String pontoDeReferencia = "";
-            int CPF1;
-            
+            String CPF1;
+            int teste;
             
             if (this.nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
@@ -210,7 +210,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             if (this.CPF.getText().length() != 10 ) {
                 throw new Mensagens("CPF deve possuir 10 caracteres");
             } else {
-                CPF1 = Integer.parseInt(this.CPF.getText());
+                
+                 teste = Integer.parseInt(this.CPF.getText());
+                 CPF1 = this.CPF.getText();
             }
 
             if (this.Telefone.getText().length() < 6) {
@@ -236,7 +238,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             if (this.CEP.getText().length() < 2) {
                 throw new Mensagens("Telefone deve conter ao menos 2 caracteres.");
             } else {
-                CEP1 = Integer.parseInt(this.CEP.getText());
+                
+                 teste = Integer.parseInt(this.CEP.getText());
+                 CEP1 = this.CEP.getText();
             }
 
             

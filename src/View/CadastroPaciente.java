@@ -7,6 +7,10 @@ package View;
 
 import javax.swing.JOptionPane;
 import Control.PacienteControl;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFrame;
 
 /**
@@ -144,8 +148,9 @@ public class CadastroPaciente extends javax.swing.JFrame {
             {
                 String nome1 = "";
                 String endereço1 = "";
-                int telefone;
-                int data;
+                String telefone;
+                Date data = new Date();
+                int teste;
                 
                 if (this.nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
@@ -162,13 +167,17 @@ public class CadastroPaciente extends javax.swing.JFrame {
                 if (this.Telefone.getText().length() < 6) {
                 throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
                 } else {
-                  telefone = Integer.parseInt(this.Telefone.getText());
+                    teste = Integer.parseInt(this.Telefone.getText());
+                    telefone = this.Telefone.getText();
                 }
             
                 if (this.data_de_nascimento.getText().length() != 8) {
                 throw new Mensagens("Data de Nascimento deve conter 8 caracteres.");
                 } else {
-                   data = Integer.parseInt(this.data_de_nascimento.getText());
+                   teste = Integer.parseInt(this.data_de_nascimento.getText());
+                   SimpleDateFormat originalFormat = new SimpleDateFormat("ddMMddyyyy");
+                   data = originalFormat.parse(this.data_de_nascimento.getText());
+                   
                 }
                 
                 
@@ -192,7 +201,12 @@ public class CadastroPaciente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, erro.getMessage());
             } catch (NumberFormatException erro2) {
             JOptionPane.showMessageDialog(null, "Deve-se digitar somente digitos numericos \n nos campos: Telefone e Data de Nascimento");
-            } 
+            } catch (SQLException ex) {
+            
+        } catch(ParseException ex )
+        {
+            
+        }
             
             
 

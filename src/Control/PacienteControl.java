@@ -1,46 +1,93 @@
 package Control;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import Model.Paciente;
+import java.sql.SQLException;
 
-/**
- *
- * @author Gabriel
- */
+
+import java.util.ArrayList;
+import java.util.Date;
+
 public class PacienteControl {
+
+    private final Paciente paciente;
+
+    public PacienteControl() {
+        this.paciente = new Paciente();
+    }
+
+    // int id, String nome , String telefone, String endereco, Date dataNascimento
+   
+    public boolean Cadastrar(String nome, String endereco, String telefone, Date data) throws SQLException{
+
+        int id = paciente.maiorID() + 1;
+
+        Paciente objeto = new Paciente(id, nome, telefone, endereco, data);
+
+        if (paciente.InsertPacienteBD(objeto)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+  
+   
     
-     public boolean Cadastrar( String nome, String Endereço,  int Telefone, int data_de_nascimentos )
-    {
-       return true; 
-    }
+    public boolean Editar (String nome, String endereco,int id, String telefone, Date dataNascimento) {
 
-    public String [] [] getMinhaLista() {
+        Paciente objeto = new Paciente(id, nome, telefone, endereco, dataNascimento);
 
-        String [] [] obj = {{"0","Paciente1", "5678"}, {"1","Paciente2", "4534"}};
+        if (paciente.UpdatePacienteBD(id,objeto)) {
+            return true;
+        } else {
+            return false;
+        }
 
-       
-         return obj;
-    }
-
-    public void apagar(String dado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public boolean Editar(String nome, String endereço, int parseInt, int parseInt0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public String[][] getMinhaMatrizTexto() {
-       
-        String [] [] obj = {{"0","Paciente1", "5678"}, {"1","Paciente2", "4534"}};
-
-       
-         return obj;
     }
     
+    
+    
+    public boolean Apagar(int id) {
+
+        if (paciente.DeletePacienteBD(id)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+    
+    public Paciente LoadPaciente(int id) {
+        
+        return paciente.carregaPaciente(id);
+    }
+    
+    public ArrayList getMinhaLista(){
+        return paciente.getMinhaLista();
+    }
+    
+    
+    
+    @SuppressWarnings("unchecked")
+    
+    public String[][] getMinhaMatrizTexto(){
+        
+        ArrayList<Paciente> minhalista = paciente.getMinhaLista();
+        int tamanho = minhalista.size();
+        
+        String MatrizAlunos[][] = new String[tamanho][5];
+        for (int i = 0; i < tamanho; i++) {
+            MatrizAlunos[i][0] = minhalista.get(i).getId() + "";
+            MatrizAlunos[i][1] = minhalista.get(i).getNome();
+            MatrizAlunos[i][2] = minhalista.get(i).getTelefone();
+            MatrizAlunos[i][3] = minhalista.get(i).getEndereco();
+            MatrizAlunos[i][4] = minhalista.get(i).getDataNascimento()+ "";
+        }        
+        
+        return MatrizAlunos;
+        
+        
+    }
     
     
 }
