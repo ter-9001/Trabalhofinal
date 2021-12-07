@@ -24,36 +24,47 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
-              <Component id="b_alterar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="b_apagar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="780" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="1054" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="293" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="383" max="-2" attributes="0"/>
+                      <Component id="b_alterar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
+                      <Component id="b_apagar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="31" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <Component id="c_CRM" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                          <Component id="c_ponto_de_referencia" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <Component id="c_rua" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="c_telefone" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
+                          <Component id="c_cpf" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                           <Component id="c_nome" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="0" min="-2" pref="68" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="c_periodo_de_atendimento" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                          <Component id="c_telefone" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                          <Component id="c_especialidade" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="c_cep" alignment="0" min="-2" pref="170" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="482" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="c_numero" min="-2" pref="170" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -61,32 +72,40 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="194" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="60" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="c_nome" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="c_CRM" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-              <Component id="c_especialidade" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="c_cpf" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="c_telefone" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="c_numero" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="c_periodo_de_atendimento" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="c_cep" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="c_rua" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="c_ponto_de_referencia" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="b_alterar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="b_apagar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,13 +121,15 @@
         <Component class="javax.swing.JTable" name="jTableAlunos">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="6" rowCount="1">
+              <Table columnCount="8" rowCount="1">
                 <Column editable="false" title="Id" type="java.lang.Object"/>
                 <Column editable="false" title="Nome" type="java.lang.Object"/>
-                <Column editable="false" title="CRM" type="java.lang.Object"/>
-                <Column editable="false" title="Especialidade" type="java.lang.Object"/>
-                <Column editable="true" title="Telefone" type="java.lang.Object"/>
-                <Column editable="false" title="Per&#xed;odo de Atendimento" type="java.lang.Object"/>
+                <Column editable="false" title="Cpf" type="java.lang.Object"/>
+                <Column editable="false" title="Telefone" type="java.lang.Object"/>
+                <Column editable="false" title="Cep" type="java.lang.Object"/>
+                <Column editable="false" title="Rua" type="java.lang.Object"/>
+                <Column editable="false" title="N&#xfa;mero" type="java.lang.Object"/>
+                <Column editable="false" title="Ponto de Refer&#xea;ncia" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -129,6 +150,16 @@
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="100" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -180,31 +211,40 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="CRM:"/>
+        <Property name="text" type="java.lang.String" value="Cpf:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="c_CRM">
+    <Component class="javax.swing.JTextField" name="c_cpf">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="text" type="java.lang.String" value="Telefone:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="c_especialidade">
+    <Component class="javax.swing.JTextField" name="c_telefone">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Per&#xed;odo de Atendimento"/>
+        <Property name="text" type="java.lang.String" value="Cep:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="c_periodo_de_atendimento">
+    <Component class="javax.swing.JTextField" name="c_cep">
     </Component>
-    <Component class="javax.swing.JTextField" name="c_telefone">
+    <Component class="javax.swing.JTextField" name="c_rua">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Especialidade:"/>
+        <Property name="text" type="java.lang.String" value="Rua:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="c_ponto_de_referencia">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ponto de Refer&#xea;ncia:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="c_numero">
     </Component>
   </SubComponents>
 </Form>

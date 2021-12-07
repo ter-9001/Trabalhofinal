@@ -142,7 +142,7 @@ public class ProcurarFuncionario extends javax.swing.JFrame {
 
                 if((linhasMatriz [i] [3]).equals(CPF.getSelectedItem().toString()))
                 {
-                    FuncionarioSelecionado fs = new FuncionarioSelecionado(i);
+                    FuncionarioSelecionado fs = new FuncionarioSelecionado(i+1);
                     fs.setVisible(true);
                 }
 
@@ -158,7 +158,7 @@ public class ProcurarFuncionario extends javax.swing.JFrame {
 
                 if((linhasMatriz [i] [1]).equals((nome.getSelectedItem().toString())) )
                 {
-                    FuncionarioSelecionado fs = new FuncionarioSelecionado(i);
+                    FuncionarioSelecionado fs = new FuncionarioSelecionado(i+1);
                     fs.setVisible(true);
                 }
 

@@ -107,7 +107,7 @@ public class ProcurarPaciente extends javax.swing.JFrame {
 
                 if( (linhasMatriz [i] [1]).equals(a) )
                 {
-                    PacienteSelecionado ps = new PacienteSelecionado(i);
+                    PacienteSelecionado ps = new PacienteSelecionado(i+1);
                     ps.setVisible(true);
 
                 }

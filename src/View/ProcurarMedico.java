@@ -162,40 +162,21 @@ public class ProcurarMedico extends javax.swing.JFrame {
         
         if(CRM.getSelectedItem().toString() != "selecione")
         {
-             String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
-            for (int i = 0; i < linhasMatriz.length; i++) {
-            
-                if( (linhasMatriz [i] [3]).equals(CRM.getSelectedItem().toString()))
-                {
-                    MedicoSelecionado ms = new MedicoSelecionado(i);
+                    MedicoSelecionado ms = new MedicoSelecionado();
                     ms.setVisible(true);
-                }
             
-            }
+            
             
         
-          return;
+          
         }
         
         
         
         if(nome.getSelectedItem().toString() != "selecione")
         {
-            String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
-            for (int i = 0; i < linhasMatriz.length; i++) {
-            
-                
-                if( (linhasMatriz [i] [1]).equals(nome.getSelectedItem().toString() ))
-                {
-                    MedicoSelecionado ms = new MedicoSelecionado(i);
+                    MedicoSelecionado ms = new MedicoSelecionado();
                     ms.setVisible(true);
-                }
-            
-            
-            }
-        
-        
-           return;
         }
         
         

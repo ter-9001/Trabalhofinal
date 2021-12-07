@@ -10,21 +10,18 @@ import javax.swing.table.DefaultTableModel;
 public class MedicoSelecionado extends javax.swing.JFrame {
 
     private MedicoControl controlador; // cria o v�nculo com o controlador
-    private int index; 
     
-   
+     
+    
+    
     public MedicoSelecionado() {
-    }    
-    
-    
-    public MedicoSelecionado(int index) {
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         this.controlador = new MedicoControl(); // carrega controlador de aluno
         this.carregaTabela();
-        index = this.index;
+        
     }
 
     /**
@@ -111,14 +108,18 @@ public class MedicoSelecionado extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(193, 193, 193)
+                .addComponent(b_alterar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(b_apagar)
+                .addGap(243, 243, 243))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
-                        .addComponent(b_alterar)
-                        .addGap(251, 251, 251)
-                        .addComponent(b_apagar))
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(290, 290, 290)
+                        .addGap(293, 293, 293)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(c_CRM, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,18 +130,15 @@ public class MedicoSelecionado extends javax.swing.JFrame {
                             .addComponent(c_periodo_de_atendimento, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(c_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(c_especialidade, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(c_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,11 +158,10 @@ public class MedicoSelecionado extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(c_periodo_de_atendimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_alterar)
-                    .addComponent(b_apagar))
-                .addContainerGap(32, Short.MAX_VALUE))
+                    .addComponent(b_apagar)))
         );
 
         pack();
@@ -307,15 +304,16 @@ public class MedicoSelecionado extends javax.swing.JFrame {
         }
 
          
-         this.index = -1;
+         
     }//GEN-LAST:event_b_apagarActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    @SuppressWarnings("unchecked")
+    //@SuppressWarnings("unchecked")
     public void carregaTabela() {
 
+        
        DefaultTableModel modelo = (DefaultTableModel) this.jTableAlunos.getModel();
         modelo.setNumRows(0);
         
@@ -323,17 +321,19 @@ public class MedicoSelecionado extends javax.swing.JFrame {
 
         String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
         
-        if(index >= 0)
-        {
+        
+       for (int i = 0; i < linhasMatriz.length; i++) {
+       {
+            
             modelo.addRow(
                     
             new Object[]{
-                linhasMatriz[index][0],
-                linhasMatriz[index][1],
-                linhasMatriz[index][3],
-                linhasMatriz[index][4],
-                linhasMatriz[index][2],
-                linhasMatriz[index][5]
+                linhasMatriz[i][0],
+                linhasMatriz[i][1],
+                linhasMatriz[i][3],
+                linhasMatriz[i][4],
+                linhasMatriz[i][2],
+                linhasMatriz[i][5]
              }
             
             
@@ -358,34 +358,12 @@ public class MedicoSelecionado extends javax.swing.JFrame {
 //            });
 //        }
     }
-
+  
+    }
+    
+    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MedicoSelecionado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MedicoSelecionado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MedicoSelecionado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MedicoSelecionado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
+    
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
