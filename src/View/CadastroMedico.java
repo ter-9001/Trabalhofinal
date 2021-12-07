@@ -176,9 +176,9 @@ public class CadastroMedico extends javax.swing.JFrame {
             String nome= "";
             String crm= "";
             String especialidade = "";
-            int telefone = 0;
+            String telefone = "";
             String periodoDeAtendimento = "";
-            
+            int teste;
             
             if (this.nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
@@ -190,7 +190,7 @@ public class CadastroMedico extends javax.swing.JFrame {
             if (this.CRM.getText().length() < 2) {
                 throw new Mensagens("CRM deve conter ao menos 2 caracteres.");
             } else {
-                int teste = Integer.parseInt(this.CRM.getText());
+                teste = Integer.parseInt(this.CRM.getText());
                 crm = this.CRM.getText();
             }
             
@@ -205,7 +205,8 @@ public class CadastroMedico extends javax.swing.JFrame {
             if (this.Telefone.getText().length() < 6) {
                 throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
             } else {
-                telefone = Integer.parseInt(this.Telefone.getText());
+                teste = Integer.parseInt(this.Telefone.getText());
+                telefone = this.Telefone.getText();
             }
             
             
@@ -215,7 +216,7 @@ public class CadastroMedico extends javax.swing.JFrame {
             }
             
             
-             if (this.controlador.Cadastrar(nome, crm, especialidade, telefone, periodoDeAtendimento)) {
+             if (this.controlador.Cadastrar(nome, crm, especialidade, periodoDeAtendimento, telefone)) {
                 JOptionPane.showMessageDialog(rootPane, "Médico Cadastrado com Sucesso!");
 
                 // limpa campos da interface
@@ -237,9 +238,9 @@ public class CadastroMedico extends javax.swing.JFrame {
         } catch (NumberFormatException erro2) {
             JOptionPane.showMessageDialog(null, "Deve-se digitar até 10 digitos numeriocos \n nos campos: CRM e Telefone");
         } 
-//catch (SQLException ex) {
-////            
-////        } 
+        catch (SQLException ex) {
+            
+        } 
         
         
                

@@ -1,48 +1,90 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Control;
 
-/**
- *
- * @author Gabriel
- */
+import Model.Medico;
+import java.sql.SQLException;
+import java.util.*;
+
 public class MedicoControl {
     
+    private final Medico control;
     
-    public boolean Cadastrar( String nome, String CRM, String Especialidade,  int Telefone, String perido_de_atendimento )
-    {
-       return true; 
-    }
-
-    public String [] [] getMinhaLista() {
-        
-        String [][] dado = { {"0", "Gabriel", "098901" ,"Nerologia"}, { "1" , "Maria", "0891234" ,"Cardiologia"} };
-        return dado;
-        
-    }
-
-    public String [] [] getMinhaMatrizTexto() {
-        
-        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Template.
-      }
-
-    public boolean Editar(int id, String nome, int CRM, String Especialidade, int telefone ,String periodo_de_atendimento) {
-
-        
-
-
-     return true;
-    }
-
-    public void apagar(String dado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public MedicoControl() {
+        this.control = new Medico();
     }
     
+     public boolean Cadastrar(String nome, String crm, String especialidade, String periodoDeAtendimento, String telefone) throws SQLException {
+         
+         int id = control.maiorID() + 1;
+        
+         
+         Medico objeto = new Medico( crm, especialidade, periodoDeAtendimento, id, nome, telefone);
+         
+          if(control.InsertMedicoBD(objeto)){
+            return true;
+        }else{
+            return false;
+        }
+     }
+     
+           public boolean Editar(String nome, String crm,int id, String especialidade, String periodoDeAtendimento, String telefone) {
+               
+        Medico objeto = new Medico(crm,especialidade, periodoDeAtendimento, id,nome,telefone);
+        
+        if(control.UpdateMedicoBD(objeto)){
+            return true;
+        }else{
+            return false;
+        }
+     }
+            public boolean Apagar(int id) {
+        if(control.DeleteMedicoBD(id)){
+            return true;
+            }else{
+            return false;
+        }
+    }
+            
+            public Medico CarregarMedico(int id){
+                return control.CarregueMedico(id);
+            }
+
+  
+    public ArrayList getMinhaLista() {
+        return control.getMinhaLista();
+    }
     
+  
+    @SuppressWarnings("Unchecked")
+    public String[][] getMinhaMatrizTexto() {
+
+        System.out.println("GetminhaMatriz\n");
+        
+        ArrayList<Medico> minhalista = control.getMinhaLista();
+       
+        int tamanho = minhalista.size();
+        String Matriz[][] = new String[tamanho][6];
+
+        for (int i = 0; i < tamanho; i++) {
+           
+            Matriz[i][0] = minhalista.get(i).getId() + "";
+            Matriz[i][1] = minhalista.get(i).getNome();
+            Matriz[i][2] = minhalista.get(i).getTelefone();
+            Matriz[i][3] = minhalista.get(i).getCrm();
+            Matriz[i][4] = minhalista.get(i).getEspecialidade();
+            Matriz[i][5] = minhalista.get(i).getPeriodoDeAtendimento() ;
+        }
+
+        System.out.println("Fim GetminhaMatriz\n");
+        
+        return Matriz;
+    }
+
     
-    
+
 }
+    
+    
+    
+    
+

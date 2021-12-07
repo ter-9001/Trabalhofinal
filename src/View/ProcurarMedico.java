@@ -162,10 +162,10 @@ public class ProcurarMedico extends javax.swing.JFrame {
              String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
             for (int i = 0; i < linhasMatriz.length; i++) {
             
-                if(linhasMatriz [i] [2] == CRM.getSelectedItem().toString())
+                if( (linhasMatriz [i] [2]).equals(CRM.getSelectedItem().toString()))
                 {
-                    Listar listar = new Listar("Médico", linhasMatriz [i] );
-                    listar.setVisible(true);
+                    MedicoSelecionado ms = new MedicoSelecionado();
+                    ms.setVisible(true);
                 }
             
             }
@@ -182,11 +182,10 @@ public class ProcurarMedico extends javax.swing.JFrame {
             for (int i = 0; i < linhasMatriz.length; i++) {
             
                 
-                if(linhasMatriz [i] [1] == nome.getSelectedItem().toString())
+                if( (linhasMatriz [i] [1]).equals(nome.getSelectedItem().toString() ))
                 {
-                    Listar listar = new Listar("Médico", linhasMatriz [i] );
-                    listar.setVisible(true);
-        
+                    MedicoSelecionado ms = new MedicoSelecionado();
+                    ms.setVisible(true);
                 }
             
             

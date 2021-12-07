@@ -142,8 +142,6 @@ public class ProcurarFuncionario extends javax.swing.JFrame {
 
                 if(linhasMatriz [i] [2] == CPF.getSelectedItem().toString())
                 {
-                    Listar listar = new Listar("Funcionário", linhasMatriz [i] );
-                    listar.setVisible(true);
                 }
 
             }
@@ -158,8 +156,6 @@ public class ProcurarFuncionario extends javax.swing.JFrame {
 
                 if(linhasMatriz [i] [1] == nome.getSelectedItem().toString())
                 {
-                    Listar listar = new Listar("Funcionário", linhasMatriz [i] );
-                    listar.setVisible(true);
 
                 }
 
