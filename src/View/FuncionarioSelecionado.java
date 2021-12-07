@@ -9,13 +9,17 @@ import javax.swing.table.DefaultTableModel;
 public class FuncionarioSelecionado extends javax.swing.JFrame {
 
     private FuncionarioControl controlador; // cria o v�nculo com o controlador
-    
+    private int index;
     
    
     
-    
-    
     public FuncionarioSelecionado() {
+        
+        
+    }
+    
+    
+    public FuncionarioSelecionado(int index) {
         initComponents();
         setLocationRelativeTo(null);
         this.controlador = new FuncionarioControl(); // carrega controlador de aluno
@@ -246,7 +250,8 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
             } else {
                 cep = this.c_cep.getText();
             }
-
+            
+            
             if (this.jTableAlunos.getSelectedRow() == -1) {
                 throw new Mensagens("Primeiro selecione a Tabela para Alterar");
             } else {
@@ -266,7 +271,7 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
                 this.c_cpf.setText("");
                 this.c_telefone.setText("");
                 this.c_cep.setText("");
-                JOptionPane.showMessageDialog(rootPane, "Paciente Alterado com Sucesso!");
+                JOptionPane.showMessageDialog(rootPane, "Funcionário Alterado com Sucesso!");
 
             }
             System.out.println(this.controlador.getMinhaLista().toString());
@@ -286,12 +291,18 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
             String nome = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 1).toString();
             String endereco = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 2).toString();
             String telefone = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 3).toString();
-            String periodo_de_atendimento = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 4).toString();
-
+            String cep = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 4).toString();
+            String Rua = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 5).toString();
+            String Numero = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 6).toString();
+            String ponto_de_referencia = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 7).toString();
+            
             this.c_nome.setText(nome);
             this.c_cpf.setText(endereco);
             this.c_telefone.setText(telefone);
-            this.c_cep.setText(periodo_de_atendimento);
+            this.c_cep.setText(cep);
+            this.c_rua.setText(Rua);
+            this.c_numero.setText(Numero);
+            this.c_ponto_de_referencia.setText(ponto_de_referencia);
 
         }
     }//GEN-LAST:event_jTableAlunosMouseClicked
@@ -346,6 +357,8 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     public void carregaTabela() {
 
+        System.out.print("Chegou");
+        
        DefaultTableModel modelo = (DefaultTableModel) this.jTableAlunos.getModel();
         modelo.setNumRows(0);
         
@@ -354,24 +367,22 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
         // 0, 1, 3, 2 , 4, 5, 6, 7
         
         String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
-        for (int i = 0; i < linhasMatriz.length; i++) {
             modelo.addRow(
                     
             new Object[]{
-                linhasMatriz[i][0],
-                linhasMatriz[i][1],
-                linhasMatriz[i][3],
-                linhasMatriz[i][2],
-                linhasMatriz[i][4],
-                linhasMatriz[i][5],
-                linhasMatriz[i][6],
-                linhasMatriz[i][7]
+                linhasMatriz[index][0],
+                linhasMatriz[index][1],
+                linhasMatriz[index][3],
+                linhasMatriz[index][2],
+                linhasMatriz[index][4],
+                linhasMatriz[index][5],
+                linhasMatriz[index][6],
+                linhasMatriz[index][7]
              }
             
             
             );
 
-        }
 
 // � poss�vel manipular diretamente um objeto de Aluno, por�m, 
 // tal a��o quebra o fluxo esperado.

@@ -157,6 +157,7 @@ public class FuncionarioDAO {
             stmt.setString(7, objeto.getPonto_de_referencia()); 
             
             stmt.setString(8, objeto.getCep()); 
+            stmt.setInt(9, objeto.getId());
             stmt.execute();
             stmt.close();
 
