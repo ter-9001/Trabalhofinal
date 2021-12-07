@@ -125,7 +125,7 @@ public class ProcurarMedico extends javax.swing.JFrame {
         String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
         for (int i = 0; i < linhasMatriz.length; i++) {
             
-            CRM.addItem(linhasMatriz [i] [2]);
+            CRM.addItem(linhasMatriz [i] [3]);
             nome.addItem(linhasMatriz [i] [1]);
         
         }
@@ -162,7 +162,7 @@ public class ProcurarMedico extends javax.swing.JFrame {
              String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
             for (int i = 0; i < linhasMatriz.length; i++) {
             
-                if( (linhasMatriz [i] [2]).equals(CRM.getSelectedItem().toString()))
+                if( (linhasMatriz [i] [3]).equals(CRM.getSelectedItem().toString()))
                 {
                     MedicoSelecionado ms = new MedicoSelecionado();
                     ms.setVisible(true);

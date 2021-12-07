@@ -188,7 +188,7 @@ public class MedicoSelecionado extends javax.swing.JFrame {
                 throw new Mensagens("CRM deve possuir ao menos 2 caracteres numéricos.");
             } else {
                crm = this.c_CRM.getText();
-               teste = Integer.parseInt(this.c_CRM.getText());
+               //teste = Integer.parseInt(this.c_CRM.getText());
             }
             
             
@@ -204,7 +204,7 @@ public class MedicoSelecionado extends javax.swing.JFrame {
                 telefone = this.c_telefone.getText();
             }
 
-            if (this.c_periodo_de_atendimento.getText().equals("Manhã")  && this.c_periodo_de_atendimento.getText().equals("Tarde")) {
+            if ( !this.c_periodo_de_atendimento.getText().equals("Manhã")  && !this.c_periodo_de_atendimento.getText().equals("Tarde")) {
                 throw new Mensagens("Período de Atedimento deve ser\n Manhã ou Tarde");
             } else {
                 periodo_de_atendimento = this.c_periodo_de_atendimento.getText();
@@ -321,9 +321,9 @@ public class MedicoSelecionado extends javax.swing.JFrame {
             new Object[]{
                 linhasMatriz[i][0],
                 linhasMatriz[i][1],
-                linhasMatriz[i][2],
                 linhasMatriz[i][3],
                 linhasMatriz[i][4],
+                linhasMatriz[i][2],
                 linhasMatriz[i][5]
              }
             

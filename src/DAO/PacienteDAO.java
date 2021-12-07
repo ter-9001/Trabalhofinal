@@ -175,7 +175,7 @@ public class PacienteDAO {
             
             stmt.setString(1, objeto.getNome());
             stmt.setString(2, objeto.getEndereco());
-            stmt.setString(3, objeto.getTelefone()+"");
+            stmt.setString(3, objeto.getTelefone());
 
 
             

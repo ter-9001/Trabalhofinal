@@ -140,20 +140,25 @@ public class MedicoDAO {
         
         public boolean UpdateMedicoBD(Medico objeto) {
 
-        String sql = "UPDATE medico set id = ? ,nome = ? ,telefone = ? ,crm = ?,especialidade = ?, periodoDeAtendimento = ?, WHERE id = ?";
+        String sql = "UPDATE medico set nome = ? ,telefone = ? ,crm = ?,especialidade = ?, periodo_de_atendimento = ? WHERE id = ?";
 
         try {
             PreparedStatement state = this.getConexao().prepareStatement(sql);
 
-            state.setInt(1, objeto.getId());
-            state.setString(2, objeto.getNome());
-            state.setString(3, objeto.getTelefone());
-            state.setString(4, objeto.getCrm());
-            state.setString(5, objeto.getEspecialidade());
-            state.setString(6, objeto.getPeriodoDeAtendimento());
+            state.setString(1, objeto.getNome());
+            state.setString(2, objeto.getTelefone());
+            state.setString(3, objeto.getCrm());
+            state.setString(4, objeto.getEspecialidade());
+            state.setString(5, objeto.getPeriodoDeAtendimento());
+            state.setInt(6, objeto.getId());
 
             state.execute();
             state.close();
+            
+            
+             System.out.println( objeto.getId() +"\n"+ objeto.getNome()  + "\n" + objeto.getCrm() + "\n" + 
+                    objeto.getTelefone() +"\n"+ objeto.getPeriodoDeAtendimento() +"\n"+ objeto.getEspecialidade());
+           
 
             return true;
 
@@ -177,7 +182,7 @@ public class MedicoDAO {
             objeto.setTelefone(set.getString("telefone"));
             objeto.setCrm(set.getString("crm"));
             objeto.setEspecialidade(set.getString("especialidade"));
-            objeto.setPeriodoDeAtendimento(set.getString("periodo De Atendimento"));
+            objeto.setPeriodoDeAtendimento(set.getString("periodo_de_atendimento"));
 
             state.close();            
             
