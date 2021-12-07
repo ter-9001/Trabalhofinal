@@ -24,6 +24,7 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.controlador = new FuncionarioControl(); // carrega controlador de aluno
         this.carregaTabela();
+        this.index = index;
     }
 
     /**
@@ -206,6 +207,11 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
             String ponto_de_referencia= "";
             long teste;
             
+            if (this.jTableAlunos.getSelectedRow() == -1) {
+                throw new Mensagens("Primeiro selecione a Tabela para Alterar");
+            } else {
+                id = Integer.parseInt(this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 0).toString());
+            }
             
             if (this.c_nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
@@ -252,11 +258,7 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
             }
             
             
-            if (this.jTableAlunos.getSelectedRow() == -1) {
-                throw new Mensagens("Primeiro selecione a Tabela para Alterar");
-            } else {
-                id = Integer.parseInt(this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 0).toString());
-            }
+            
             
             // envia os dados para o Controlador processar
         
@@ -271,6 +273,9 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
                 this.c_cpf.setText("");
                 this.c_telefone.setText("");
                 this.c_cep.setText("");
+                this.c_rua.setText("");
+                this.c_numero.setText("");
+                this.c_ponto_de_referencia.setText("");
                 JOptionPane.showMessageDialog(rootPane, "Funcionário Alterado com Sucesso!");
 
             }
@@ -334,6 +339,9 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
                     this.c_cpf.setText("");
                     this.c_telefone.setText("");
                     this.c_cep.setText("");
+                    this.c_rua.setText("");
+                    this.c_numero.setText("");
+                    this.c_ponto_de_referencia.setText("");
                     JOptionPane.showMessageDialog(rootPane, "Paciente Apagado com Sucesso!");
 
                 }
@@ -349,6 +357,8 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
             carregaTabela();
         }
 
+         
+         this.index = -1;
     }//GEN-LAST:event_b_apagarActionPerformed
 
     /**
@@ -367,22 +377,29 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
         // 0, 1, 3, 2 , 4, 5, 6, 7
         
         String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
-            modelo.addRow(
+          
+        if(index >= 0)
+        {
+              modelo.addRow(
                     
-            new Object[]{
-                linhasMatriz[index][0],
-                linhasMatriz[index][1],
-                linhasMatriz[index][3],
-                linhasMatriz[index][2],
-                linhasMatriz[index][4],
-                linhasMatriz[index][5],
-                linhasMatriz[index][6],
-                linhasMatriz[index][7]
-             }
+                    new Object[]{
+                        linhasMatriz[index][0],
+                        linhasMatriz[index][1],
+                        linhasMatriz[index][3],
+                        linhasMatriz[index][2],
+                        linhasMatriz[index][4],
+                        linhasMatriz[index][5],
+                        linhasMatriz[index][6],
+                        linhasMatriz[index][7]
+                     }
             
             
             );
 
+        }
+        
+        
+        
 
 // � poss�vel manipular diretamente um objeto de Aluno, por�m, 
 // tal a��o quebra o fluxo esperado.

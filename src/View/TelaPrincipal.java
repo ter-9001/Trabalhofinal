@@ -24,7 +24,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Medico.setVisible(false);
         Paciente.setVisible(false);
         Funcionario.setVisible(false);
-        
+        voltarCadastrar.setVisible(false);
     }
 
     /**
@@ -42,6 +42,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Medico = new javax.swing.JButton();
         Paciente = new javax.swing.JButton();
         Funcionario = new javax.swing.JButton();
+        voltarCadastrar = new javax.swing.JButton();
 
         jButton2.setText("jButton2");
 
@@ -82,6 +83,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        voltarCadastrar.setText("Voltar para Home");
+        voltarCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voltarCadastrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,8 +105,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                             .addComponent(Procurar)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(147, 147, 147)
-                        .addComponent(Funcionario)))
-                .addContainerGap(160, Short.MAX_VALUE))
+                        .addComponent(Funcionario))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(voltarCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +124,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(Procurar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Funcionario)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(voltarCadastrar)
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         pack();
@@ -128,6 +141,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         Cadastrar.setVisible(false);
         Procurar.setVisible(false);
+        voltarCadastrar.setVisible(true);
         
         this.setTitle("Escolha uma opção");
         Medico.setVisible(true);
@@ -150,7 +164,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Medico.setVisible(true);
         Paciente.setVisible(true);
         Funcionario.setVisible(true);
-
+        voltarCadastrar.setVisible(true);
 
     }//GEN-LAST:event_ProcurarActionPerformed
 
@@ -216,6 +230,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_FuncionarioActionPerformed
 
+    private void voltarCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarCadastrarActionPerformed
+
+        Cadastrar.setVisible(true);
+        Procurar.setVisible(true);
+        voltarCadastrar.setVisible(false);
+        
+        this.setTitle("Escolha uma opção");
+        Medico.setVisible(false);
+        Paciente.setVisible(false);
+        Funcionario.setVisible(false);
+        
+        
+    }//GEN-LAST:event_voltarCadastrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -260,5 +288,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton Paciente;
     private javax.swing.JButton Procurar;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton voltarCadastrar;
     // End of variables declaration//GEN-END:variables
 }

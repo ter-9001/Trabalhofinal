@@ -6,6 +6,7 @@
 package View;
 
 import Control.MedicoControl;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,6 +25,8 @@ public class ProcurarMedico extends javax.swing.JFrame {
     public ProcurarMedico() {
         initComponents();
         this.controlador = new MedicoControl();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
         CarregarDados();
         setLocationRelativeTo(null);
     }
@@ -164,7 +167,7 @@ public class ProcurarMedico extends javax.swing.JFrame {
             
                 if( (linhasMatriz [i] [3]).equals(CRM.getSelectedItem().toString()))
                 {
-                    MedicoSelecionado ms = new MedicoSelecionado();
+                    MedicoSelecionado ms = new MedicoSelecionado(i);
                     ms.setVisible(true);
                 }
             
@@ -184,7 +187,7 @@ public class ProcurarMedico extends javax.swing.JFrame {
                 
                 if( (linhasMatriz [i] [1]).equals(nome.getSelectedItem().toString() ))
                 {
-                    MedicoSelecionado ms = new MedicoSelecionado();
+                    MedicoSelecionado ms = new MedicoSelecionado(i);
                     ms.setVisible(true);
                 }
             

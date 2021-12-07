@@ -9,17 +9,19 @@ import javax.swing.table.DefaultTableModel;
 public class PacienteSelecionado extends javax.swing.JFrame {
 
     private PacienteControl controlador; // cria o v�nculo com o controlador
-    
+    private int index;
     
    
-    
-    
-    
     public PacienteSelecionado() {
+    }   
+    
+    
+    public PacienteSelecionado(int index) {
         initComponents();
         setLocationRelativeTo(null);
         this.controlador = new PacienteControl(); // carrega controlador de aluno
         this.carregaTabela();
+        this.index = index;
     }
 
     /**
@@ -277,6 +279,8 @@ public class PacienteSelecionado extends javax.swing.JFrame {
             carregaTabela();
         }
 
+         
+         this.index = -1;
     }//GEN-LAST:event_b_apagarActionPerformed
 
     /**
@@ -291,15 +295,15 @@ public class PacienteSelecionado extends javax.swing.JFrame {
         
 
         String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
-        for (int i = 0; i < linhasMatriz.length; i++) {
+       if(this.index >=0){
             modelo.addRow(
                     
             new Object[]{
-                linhasMatriz[i][0],
-                linhasMatriz[i][1],
-                linhasMatriz[i][2],
-                linhasMatriz[i][3],
-                linhasMatriz[i][4]
+                linhasMatriz[index][0],
+                linhasMatriz[index][1],
+                linhasMatriz[index][2],
+                linhasMatriz[index][3],
+                linhasMatriz[index][4]
              }
             
             

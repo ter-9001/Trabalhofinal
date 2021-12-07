@@ -3,23 +3,28 @@ package View;
 import Control.MedicoControl;
 //import Model.Aluno;
 import java.util.*;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class MedicoSelecionado extends javax.swing.JFrame {
 
     private MedicoControl controlador; // cria o v�nculo com o controlador
-    
+    private int index; 
     
    
-    
-    
-    
     public MedicoSelecionado() {
+    }    
+    
+    
+    public MedicoSelecionado(int index) {
         initComponents();
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
         this.controlador = new MedicoControl(); // carrega controlador de aluno
         this.carregaTabela();
+        index = this.index;
     }
 
     /**
@@ -301,6 +306,8 @@ public class MedicoSelecionado extends javax.swing.JFrame {
             carregaTabela();
         }
 
+         
+         this.index = -1;
     }//GEN-LAST:event_b_apagarActionPerformed
 
     /**
@@ -315,16 +322,18 @@ public class MedicoSelecionado extends javax.swing.JFrame {
         
 
         String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
-        for (int i = 0; i < linhasMatriz.length; i++) {
+        
+        if(index >= 0)
+        {
             modelo.addRow(
                     
             new Object[]{
-                linhasMatriz[i][0],
-                linhasMatriz[i][1],
-                linhasMatriz[i][3],
-                linhasMatriz[i][4],
-                linhasMatriz[i][2],
-                linhasMatriz[i][5]
+                linhasMatriz[index][0],
+                linhasMatriz[index][1],
+                linhasMatriz[index][3],
+                linhasMatriz[index][4],
+                linhasMatriz[index][2],
+                linhasMatriz[index][5]
              }
             
             
