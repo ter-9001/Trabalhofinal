@@ -5,6 +5,9 @@
  */
 package View;
 import Control.FuncionarioControl;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 /**
@@ -186,14 +189,13 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         try
         {
             String nome1 = "";
-            String endereço1 = "";
-            int telefone;
+            String telefone;
             String CEP1;
             String Rua1 = "";
-            int numero1;
+            String numero1;
             String pontoDeReferencia = "";
             String CPF1;
-            int teste;
+            long teste;
             
             if (this.nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
@@ -201,18 +203,19 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 nome1 = this.nome.getText();
             }
 
-            if (this.CPF.getText().length() != 10 ) {
+            if (this.CPF.getText().length() != 11 ) {
                 throw new Mensagens("CPF deve possuir 10 caracteres");
             } else {
                 
-                 teste = Integer.parseInt(this.CPF.getText());
+                 teste = Long.parseLong(this.CPF.getText());
                  CPF1 = this.CPF.getText();
             }
 
             if (this.Telefone.getText().length() < 6) {
                 throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
             } else {
-                telefone = Integer.parseInt(this.Telefone.getText());
+                teste = Long.parseLong(this.Telefone.getText());
+                telefone = this.Telefone.getText();
             }
 
             if (this.Rua.getText().length() < 2) {
@@ -225,7 +228,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             if (this.numero.getText().length() < 1) {
                 throw new Mensagens("Número deve ter ao menos 1 caracteres");
             } else {
-                numero1 = Integer.parseInt(this.numero.getText());
+                teste = Long.parseLong(this.numero.getText());
+                numero1 = this.numero.getText();
             }
 
             
@@ -233,7 +237,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 throw new Mensagens("Telefone deve conter ao menos 2 caracteres.");
             } else {
                 
-                 teste = Integer.parseInt(this.CEP.getText());
+                 teste = Long.parseLong(this.CEP.getText());
                  CEP1 = this.CEP.getText();
             }
 
@@ -244,8 +248,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 pontoDeReferencia = this.ponto_de_referencia.getText();
             }
             
+            //String nome, String telefone , String cep, String cpf, String rua, String numero, String ponto_de_referencia
             
-            if (this.controlador.Cadastrar(nome1, CPF1, telefone , CEP1, Rua1, numero1, pontoDeReferencia)) {
+            if (this.controlador.Cadastrar(nome1, telefone , CEP1, CPF1, Rua1, numero1, pontoDeReferencia)) {
                     JOptionPane.showMessageDialog(rootPane, "Funcionário Cadastrado com Sucesso!");
 
                     // limpa campos da interface
@@ -270,6 +275,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
             JOptionPane.showMessageDialog(null, "Deve-se digitar somente digitos numericos \n nos campos: CPF, CEP, Telefone e Número");
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_CadastrarActionPerformed

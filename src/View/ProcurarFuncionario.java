@@ -140,8 +140,10 @@ public class ProcurarFuncionario extends javax.swing.JFrame {
             String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
             for (int i = 0; i < linhasMatriz.length; i++) {
 
-                if(linhasMatriz [i] [2] == CPF.getSelectedItem().toString())
+                if(linhasMatriz [i] [4] == CPF.getSelectedItem().toString())
                 {
+                    FuncionarioSelecionado fs = new FuncionarioSelecionado();
+                    fs.setVisible(true);
                 }
 
             }
@@ -156,7 +158,8 @@ public class ProcurarFuncionario extends javax.swing.JFrame {
 
                 if(linhasMatriz [i] [1] == nome.getSelectedItem().toString())
                 {
-
+                    FuncionarioSelecionado fs = new FuncionarioSelecionado();
+                    fs.setVisible(true);
                 }
 
             }
