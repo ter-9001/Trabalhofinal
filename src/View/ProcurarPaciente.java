@@ -24,6 +24,7 @@ public class ProcurarPaciente extends javax.swing.JFrame {
     public ProcurarPaciente() {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
         controlador = new PacienteControl();
         CarregarDados();
     }
@@ -42,6 +43,7 @@ public class ProcurarPaciente extends javax.swing.JFrame {
         Procurar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Procurar Paciente");
 
         nome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "selecione" }));
         nome.addActionListener(new java.awt.event.ActionListener() {
@@ -73,7 +75,7 @@ public class ProcurarPaciente extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(147, 147, 147)
                         .addComponent(Procurar)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,7 +98,6 @@ public class ProcurarPaciente extends javax.swing.JFrame {
 
     private void ProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcurarActionPerformed
 
-        
         if(nome.getSelectedItem().toString() != "selecione")
         {
             String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
@@ -104,12 +105,11 @@ public class ProcurarPaciente extends javax.swing.JFrame {
 
                 String a = nome.getSelectedItem().toString();
                 System.out.print("\nfoi\n"+ (linhasMatriz [i] [1]) + "\n");
-                
+
                 if( (linhasMatriz [i] [1]).equals(a) )
                 {
-                    Listar listar = new Listar("Paciente", linhasMatriz [i] );
-                    System.out.print(linhasMatriz[i]);
-                    listar.setVisible(true);
+                    PacienteSelecionado ps = new PacienteSelecionado(linhasMatriz [i] );
+                    ps.setVisible(true);
 
                 }
 

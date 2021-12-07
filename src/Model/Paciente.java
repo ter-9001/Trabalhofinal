@@ -9,21 +9,22 @@ public class Paciente extends Pessoa {
 
     private String endereco;
     private String rua;
-    private Date dataNascimento;
+    private String dataNascimento;
     private final PacienteDAO dao;
 
     public Paciente() {
         this.dao = new PacienteDAO();
     }
 
-    public Paciente(String endereco,  Date dataNascimento) {
-        this.endereco = endereco;
+    public Paciente(String endereco,  String dataNascimento) {
         
+        this.endereco = endereco;
         this.dataNascimento = dataNascimento;
         this.dao = new PacienteDAO();
+    
     }
 
-    public Paciente(int id, String nome , int telefone, String endereco, Date dataNascimento) {
+    public Paciente(int id, String nome , String telefone, String endereco, String dataNascimento) {
         super(id, nome, telefone);
         this.endereco = endereco;
         this.rua = rua;
@@ -43,11 +44,11 @@ public class Paciente extends Pessoa {
 
 
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
     

@@ -15,6 +15,9 @@ import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -35,6 +38,7 @@ public class Listar extends javax.swing.JFrame {
     private PacienteControl controladorPaciente; 
     private FuncionarioControl controladorFuncionario; 
     
+    
     public Listar()
     {
         
@@ -47,6 +51,8 @@ public class Listar extends javax.swing.JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.tipo = tipo;
         this.dados = dados;
+        this.setTitle( this.tipo + "Selecionar");
+        setLocationRelativeTo(null);
         carregarLista();
         controladorMedico = new MedicoControl();
         controladorPaciente = new PacienteControl();
@@ -69,6 +75,7 @@ public class Listar extends javax.swing.JFrame {
         editar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Selecionado");
 
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,6 +89,18 @@ public class Listar extends javax.swing.JFrame {
             }
         ));
         Tabela.setShowGrid(true);
+        Tabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabelaMouseClicked(evt);
+            }
+        });
+        Tabela.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                TabelaInputMethodTextChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(Tabela);
 
         Apagar.setText("Apagar");
@@ -181,7 +200,7 @@ public class Listar extends javax.swing.JFrame {
                             
                                     if(this.controladorMedico.Editar(Integer.parseInt(this.dados[0]), nome, Integer.parseInt(CRM), Especialidade, Integer.parseInt(Telefone) ,PeriododeAtendimento)) {
 
-                                         JOptionPane.showMessageDialog(rootPane, "Medico Alterado com Sucesso!");
+                                        JOptionPane.showMessageDialog(rootPane, "Medico Alterado com Sucesso!");
 
                                     }   
 
@@ -205,48 +224,52 @@ public class Listar extends javax.swing.JFrame {
                             if(this.tipo == "Paciente")
                             {
                             String nome = "";
-                            String endereço= "";
-                            int Telefone;
-                            Date datadeNascimento = new Date();
-                            int teste;
+                            String endereco= "";
+                            String Telefone = "";
+                            String datadeNascimento;
+                            int teste; 
                             
+                                                      
 
-                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString().length() < 2) {
+                                    if (this.Tabela.getValueAt(0, 0).toString().length() < 2) {
                                             throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
                                     } else {
-                                        nome = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 1).toString();
+                                        nome = this.Tabela.getValueAt(0, 0).toString();
                                     }
                                     
                                     
-                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString().length() < 2) {
+                                    if (this.Tabela.getValueAt(0, 1).toString().length() < 2) {
                                             throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
                                     } else {
-                                        Telefone = Integer.parseInt(this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 2).toString());
+                                        Telefone =  this.Tabela.getValueAt(0, 1).toString();
                                         
                                     }
                                     
-                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString().length() < 2) {
+                                    if (this.Tabela.getValueAt(0, 2).toString().length() < 2) {
                                             throw new Mensagens("Endereço deve conter ao menos 2 caracteres.");
                                     } else {
-                                        endereço = this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 3).toString();
+                                        endereco = this.Tabela.getValueAt(0, 2).toString();
                                     }
                                     
                                     
                                                             
-                                    if (this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString().length() != 8) {
-                                            throw new Mensagens("Data de Nascimento deve conter 8 caracteres.");
+                                    if (this.Tabela.getValueAt(0, 3).toString().length() < 2) {
+                                            
+                                           JOptionPane.showMessageDialog(null, this.Tabela.getValueAt(0, 3).toString());
+                                           throw new Mensagens("Data de Nascimento deve conter 2 caracteres.");
+                                            
                                     } else {
-                                       teste =  Integer.parseInt(this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString());
-                                       SimpleDateFormat originalFormat = new SimpleDateFormat("ddMMddyyyy");
-                                        datadeNascimento = originalFormat.parse(this.Tabela.getValueAt(this.Tabela.getSelectedRow(), 4).toString());
+    
+                                                datadeNascimento =  this.Tabela.getValueAt(0, 3).toString();   
                                     }
                                     
                                     
+                                         System.out.println(nome + "\n" + endereco + "\n" + Telefone + "\n"+ datadeNascimento);
+                                        
                             
-                            
-                                    if(this.controladorPaciente.Editar(nome, endereço, Integer.parseInt(dados[0]) ,Telefone,  datadeNascimento) ) {
+                                    if(this.controladorPaciente.Editar(nome, endereco, Integer.parseInt(dados[0]) ,Telefone,  datadeNascimento) ) {
 
-                                         JOptionPane.showMessageDialog(rootPane, "Paciente Alterado com Sucesso!");
+                                        JOptionPane.showMessageDialog(rootPane, "Paciente Alterado com Sucesso!");
 
                                     }   
 
@@ -259,10 +282,7 @@ public class Listar extends javax.swing.JFrame {
                               JOptionPane.showMessageDialog(null, erro.getMessage());
                           } catch (NumberFormatException erro2) {
                               JOptionPane.showMessageDialog(null, "Informe um número.");
-                          } catch(ParseException ex )
-                            {
-
-                            } finally {
+                          }finally {
                               carregarLista();
                           }
 
@@ -379,6 +399,21 @@ public class Listar extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ApagarActionPerformed
 
+    
+    
+    
+    private void TabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelaMouseClicked
+
+
+
+
+
+    }//GEN-LAST:event_TabelaMouseClicked
+
+    private void TabelaInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_TabelaInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TabelaInputMethodTextChanged
+
     /**
      * @param args the command line arguments
      */
@@ -473,21 +508,32 @@ public class Listar extends javax.swing.JFrame {
        }
        
        
-       String [] dados2 = new String [dados.length -1];
+       String [] dados2 = new String [this.dados.length -1];
        
        
-        for (int i = 1; i < dados.length; i++) {
+        for (int i = 1; i < this.dados.length; i++) {
                 
-            dados2[i-1] = dados[i];
+            dados2[i-1] = this.dados[i];
         }
 
         
                 
          modelo.addRow(dados2);
          
+         
       
+         
        
        
        
     }
+    
+    
+    public static void Atualizartabela(String dado, int row , int col)
+    {
+        //this.Tabela.setValueAt(dado, row, col);
+    }
+    
+    
+    
 }

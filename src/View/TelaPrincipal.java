@@ -19,6 +19,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     public TelaPrincipal() {
         initComponents();
+        setLocationRelativeTo(null);
+        this.setTitle("Início");
         Medico.setVisible(false);
         Paciente.setVisible(false);
         Funcionario.setVisible(false);
@@ -127,6 +129,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Cadastrar.setVisible(false);
         Procurar.setVisible(false);
         
+        this.setTitle("Escolha uma opção");
         Medico.setVisible(true);
         Paciente.setVisible(true);
         Funcionario.setVisible(true);
@@ -143,6 +146,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Cadastrar.setVisible(false);
         Procurar.setVisible(false);
         
+        this.setTitle("Escolha uma opção");
         Medico.setVisible(true);
         Paciente.setVisible(true);
         Funcionario.setVisible(true);

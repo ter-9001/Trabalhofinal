@@ -101,10 +101,10 @@ public class PacienteDAO {
 
                 String endereco = res.getString("endereco");
                 
-                Date dataNascimento = res.getDate("data_nascimento");
+                String dataNascimento = res.getString("data_nascimento");
                 int id = res.getInt("id");
                 String nome = res.getString("nome");
-                int telefone = res.getInt("telefone");
+                String telefone = res.getString("telefone");
                 
                 
                 Paciente objeto = new Paciente (id, nome,telefone, endereco, dataNascimento);
@@ -130,13 +130,14 @@ public class PacienteDAO {
             stmt.setInt(1, objeto.getId());
             stmt.setString(2, objeto.getNome());
             stmt.setString(3, objeto.getEndereco());
-            stmt.setInt(4, objeto.getTelefone());
+            stmt.setString(4, objeto.getTelefone());
             
             //objeto.getDataNascimento()
-            java.sql.Date sqlStartDate = new java.sql.Date(   objeto.getDataNascimento().getTime()); 
+//            java.sql.Date sqlStartDate = new java.sql.Date(   objeto.getDataNascimento().getTime()); 
             
-            stmt.setDate(5, sqlStartDate  ); 
+            stmt.setString(5, objeto.getDataNascimento()); 
 
+            
             stmt.execute();
             stmt.close();
 
@@ -166,19 +167,27 @@ public class PacienteDAO {
         
        public boolean UpdatePacienteBD(Paciente objeto) {
 
-        String sql = "UPDATE paciente set id = ? ,nome = ? ,endereco =?, telefone = ?  ,data_nascimento = ? WHERE id = ?";
+        String sql = "UPDATE paciente set nome = ? ,endereco =?, telefone = ?  ,data_nascimento = ? WHERE id = ?";
 
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
 
             
-            stmt.setInt(1, objeto.getId());
-            stmt.setString(2, objeto.getNome());
+            stmt.setString(1, objeto.getNome());
+            stmt.setString(2, objeto.getEndereco());
             stmt.setString(3, objeto.getTelefone()+"");
-            stmt.setString(4, objeto.getEndereco());
-            
-            stmt.setDate(5, (java.sql.Date) objeto.getDataNascimento()); 
 
+
+            
+            stmt.setString(4, objeto.getDataNascimento()); 
+            stmt.setInt(5, objeto.getId());
+            
+            
+            System.out.println( objeto.getId() +"\n"+ objeto.getNome()  + "\n" + objeto.getEndereco() + "\n" + 
+                    objeto.getTelefone() + "\n"+ objeto.getDataNascimento());
+                                        
+            
+            
             stmt.execute();
             stmt.close();
 
@@ -202,10 +211,10 @@ public class PacienteDAO {
 
             objeto.setId(res.getInt("id"));
             objeto.setNome(res.getString("nome"));
-            objeto.setTelefone(res.getInt("telefone"));
+            objeto.setTelefone(res.getString("telefone"));
             objeto.setEndereco(res.getString("endereco"));
            
-            objeto.setDataNascimento(res.getDate("data_nascimento"));
+            objeto.setDataNascimento(res.getString("data_nascimento"));
             
 
             stmt.close();            

@@ -28,6 +28,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
     public CadastroPaciente() {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+         setLocationRelativeTo(null);
         this.controlador = new PacienteControl();
     }
 
@@ -51,6 +52,9 @@ public class CadastroPaciente extends javax.swing.JFrame {
         data_de_nascimento = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastrar Paciente");
+        setLocation(new java.awt.Point(50, 50));
+        setName(""); // NOI18N
 
         Telefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,8 +152,8 @@ public class CadastroPaciente extends javax.swing.JFrame {
             {
                 String nome1 = "";
                 String endereço1 = "";
-                int telefone;
-                Date data = new Date();
+                String telefone;
+                String data;
                 int teste;
                 
                 if (this.nome.getText().length() < 2) {
@@ -167,15 +171,14 @@ public class CadastroPaciente extends javax.swing.JFrame {
                 if (this.Telefone.getText().length() < 6) {
                 throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
                 } else {
-                    telefone = Integer.parseInt(this.Telefone.getText());
+                    telefone = this.Telefone.getText();
                 }
             
                 if (this.data_de_nascimento.getText().length() != 8) {
                 throw new Mensagens("Data de Nascimento deve conter 8 caracteres.");
                 } else {
                    teste = Integer.parseInt(this.data_de_nascimento.getText());
-                   SimpleDateFormat originalFormat = new SimpleDateFormat("ddMMddyyyy");
-                   data = originalFormat.parse(this.data_de_nascimento.getText());
+                   data = this.data_de_nascimento.getText();
                    
                 }
                 
@@ -202,10 +205,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Deve-se digitar somente digitos numericos \n nos campos: Telefone e Data de Nascimento");
             } catch (SQLException ex) {
             
-        } catch(ParseException ex )
-        {
-            
-        }
+        } 
             
             
 

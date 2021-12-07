@@ -17,7 +17,7 @@ public class PacienteControl {
 
     // int id, String nome , String telefone, String endereco, Date dataNascimento
    
-    public boolean Cadastrar(String nome, String endereco, int telefone, Date data) throws SQLException{
+    public boolean Cadastrar(String nome, String endereco, String telefone, String data) throws SQLException{
 
         int id = paciente.maiorID() + 1;
 
@@ -33,7 +33,7 @@ public class PacienteControl {
   
    
     
-    public boolean Editar (String nome, String endereco,int id, int telefone, Date dataNascimento) {
+    public boolean Editar (String nome, String endereco,int id, String telefone, String dataNascimento) {
 
         Paciente objeto = new Paciente(id, nome, telefone, endereco, dataNascimento);
 

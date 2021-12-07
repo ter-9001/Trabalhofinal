@@ -25,6 +25,7 @@ public class ProcurarFuncionario extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         controlador = new FuncionarioControl();
+        setLocationRelativeTo(null);
         CarregarDados();
     }
 
@@ -45,6 +46,7 @@ public class ProcurarFuncionario extends javax.swing.JFrame {
         Procurar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Procurar Funcionário");
 
         CPF.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "selecione" }));
         CPF.addActionListener(new java.awt.event.ActionListener() {

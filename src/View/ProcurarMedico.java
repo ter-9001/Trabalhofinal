@@ -25,6 +25,7 @@ public class ProcurarMedico extends javax.swing.JFrame {
         initComponents();
         this.controlador = new MedicoControl();
         CarregarDados();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -47,6 +48,7 @@ public class ProcurarMedico extends javax.swing.JFrame {
         jLabel3.setText("jLabel3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Procurar Médico");
 
         CRM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "selecione" }));
         CRM.addActionListener(new java.awt.event.ActionListener() {

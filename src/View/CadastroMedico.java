@@ -27,6 +27,7 @@ public class CadastroMedico extends javax.swing.JFrame {
     public CadastroMedico() {
         initComponents();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
         this.controlador = new MedicoControl();
     }
 
@@ -52,6 +53,7 @@ public class CadastroMedico extends javax.swing.JFrame {
         Cadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastrar Medico");
 
         nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
