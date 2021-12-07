@@ -9,19 +9,17 @@ import javax.swing.table.DefaultTableModel;
 public class PacienteSelecionado extends javax.swing.JFrame {
 
     private PacienteControl controlador; // cria o v�nculo com o controlador
-    private int index;
+   
     
    
+    
+    
     public PacienteSelecionado() {
-    }   
-    
-    
-    public PacienteSelecionado(int index) {
         initComponents();
         setLocationRelativeTo(null);
         this.controlador = new PacienteControl(); // carrega controlador de aluno
         this.carregaTabela();
-        this.index = index;
+        
     }
 
     /**
@@ -109,7 +107,12 @@ public class PacienteSelecionado extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(290, 290, 290)
+                        .addGap(200, 200, 200)
+                        .addComponent(b_alterar)
+                        .addGap(203, 203, 203)
+                        .addComponent(b_apagar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(284, 284, 284)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(c_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -120,19 +123,13 @@ public class PacienteSelecionado extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(c_data_de_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(208, 208, 208)
-                .addComponent(b_alterar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(b_apagar)
-                .addGap(208, 208, 208))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(c_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,7 +149,7 @@ public class PacienteSelecionado extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(b_alterar)
                     .addComponent(b_apagar))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -280,7 +277,6 @@ public class PacienteSelecionado extends javax.swing.JFrame {
         }
 
          
-         this.index = -1;
     }//GEN-LAST:event_b_apagarActionPerformed
 
     /**
@@ -295,15 +291,15 @@ public class PacienteSelecionado extends javax.swing.JFrame {
         
 
         String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
-       if(this.index >=0){
+       for (int i = 0; i < linhasMatriz.length; i++){
             modelo.addRow(
                     
             new Object[]{
-                linhasMatriz[index][0],
-                linhasMatriz[index][1],
-                linhasMatriz[index][2],
-                linhasMatriz[index][3],
-                linhasMatriz[index][4]
+                linhasMatriz[i][0],
+                linhasMatriz[i][1],
+                linhasMatriz[i][3],
+                linhasMatriz[i][2],
+                linhasMatriz[i][4]
              }
             
             

@@ -9,22 +9,16 @@ import javax.swing.table.DefaultTableModel;
 public class FuncionarioSelecionado extends javax.swing.JFrame {
 
     private FuncionarioControl controlador; // cria o v�nculo com o controlador
-    private int index;
     
    
     
+    
+    
     public FuncionarioSelecionado() {
-        
-        
-    }
-    
-    
-    public FuncionarioSelecionado(int index) {
         initComponents();
         setLocationRelativeTo(null);
         this.controlador = new FuncionarioControl(); // carrega controlador de aluno
         this.carregaTabela();
-        this.index = index;
     }
 
     /**
@@ -358,7 +352,6 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
         }
 
          
-         this.index = -1;
     }//GEN-LAST:event_b_apagarActionPerformed
 
     /**
@@ -378,19 +371,19 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
         
         String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
           
-        if(index >= 0)
+        for (int i = 0; i < linhasMatriz.length; i++)
         {
               modelo.addRow(
                     
                     new Object[]{
-                        linhasMatriz[index][0],
-                        linhasMatriz[index][1],
-                        linhasMatriz[index][3],
-                        linhasMatriz[index][2],
-                        linhasMatriz[index][4],
-                        linhasMatriz[index][5],
-                        linhasMatriz[index][6],
-                        linhasMatriz[index][7]
+                        linhasMatriz[i][0],
+                        linhasMatriz[i][1],
+                        linhasMatriz[i][3],
+                        linhasMatriz[i][2],
+                        linhasMatriz[i][4],
+                        linhasMatriz[i][5],
+                        linhasMatriz[i][6],
+                        linhasMatriz[i][7]
                      }
             
             

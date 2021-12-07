@@ -100,21 +100,10 @@ public class ProcurarPaciente extends javax.swing.JFrame {
 
         if(nome.getSelectedItem().toString() != "selecione")
         {
-            String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
-            for (int i = 0; i < linhasMatriz.length; i++) {
-
-                String a = nome.getSelectedItem().toString();
-
-                if( (linhasMatriz [i] [1]).equals(a) )
-                {
-                    PacienteSelecionado ps = new PacienteSelecionado(i+1);
+            
+                    PacienteSelecionado ps = new PacienteSelecionado();
                     ps.setVisible(true);
 
-                }
-
-            }
-
-            return;
         }
         else
         {

@@ -137,34 +137,14 @@ public class ProcurarFuncionario extends javax.swing.JFrame {
 
         if(CPF.getSelectedItem().toString() != "selecione")
         {
-            String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
-            for (int i = 0; i < linhasMatriz.length; i++) {
-
-                if((linhasMatriz [i] [3]).equals(CPF.getSelectedItem().toString()))
-                {
-                    FuncionarioSelecionado fs = new FuncionarioSelecionado(i+1);
+                    FuncionarioSelecionado fs = new FuncionarioSelecionado();
                     fs.setVisible(true);
-                }
-
-            }
-
-            return;
         }
 
         if(nome.getSelectedItem().toString() != "selecione")
         {
-            String linhasMatriz[][] = controlador.getMinhaMatrizTexto();
-            for (int i = 0; i < linhasMatriz.length; i++) {
-
-                if((linhasMatriz [i] [1]).equals((nome.getSelectedItem().toString())) )
-                {
-                    FuncionarioSelecionado fs = new FuncionarioSelecionado(i+1);
+                    FuncionarioSelecionado fs = new FuncionarioSelecionado();
                     fs.setVisible(true);
-                }
-
-            }
-
-            return;
         }
 
     }//GEN-LAST:event_ProcurarActionPerformed

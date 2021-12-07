@@ -48,7 +48,7 @@ public class MedicoSelecionado extends javax.swing.JFrame {
         c_telefone = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
-        setTitle("Paciente Selecionado");
+        setTitle("Medico Selecionado");
         setResizable(false);
 
         jTableAlunos.setModel(new javax.swing.table.DefaultTableModel(
