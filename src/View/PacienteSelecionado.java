@@ -9,21 +9,17 @@ import javax.swing.table.DefaultTableModel;
 public class PacienteSelecionado extends javax.swing.JFrame {
 
     private PacienteControl controlador; // cria o v�nculo com o controlador
-    private String[]  dados; 
+    
+    
+   
+    
+    
     
     public PacienteSelecionado() {
-        initComponents();
-       
-    }
-    
-    
-    
-    public PacienteSelecionado(String dados[]) {
         initComponents();
         setLocationRelativeTo(null);
         this.controlador = new PacienteControl(); // carrega controlador de aluno
         this.carregaTabela();
-        this.dados = dados;
     }
 
     /**
@@ -48,7 +44,7 @@ public class PacienteSelecionado extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         c_data_de_nascimento = new javax.swing.JTextField();
 
-        setTitle("Gerenciamento de Alunos");
+        setTitle("Paciente Selecionado");
         setResizable(false);
 
         jTableAlunos.setModel(new javax.swing.table.DefaultTableModel(
@@ -243,19 +239,44 @@ public class PacienteSelecionado extends javax.swing.JFrame {
         // validando dados da interface gr�fica.
         
         // envia os dados para o Controlador processar
-        if (this.controlador.Apagar(Integer.parseInt(dados[0]))) {
-            
-            // limpa os campos
-            this.c_nome.setText("");
-            this.c_endereco.setText("");
-            this.c_telefone.setText("");
-            this.c_data_de_nascimento.setText("");
-            JOptionPane.showMessageDialog(rootPane, "Paciente Apagado com Sucesso!");
-            
+        
+         try {
+            // validando dados da interface gr�fica.
+            int id = 0;
+            if (this.jTableAlunos.getSelectedRow() == -1) {
+                throw new Mensagens("Primeiro Selecione um Aluno para APAGAR");
+            } else {
+                id = Integer.parseInt(this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 0).toString());
+            }
+
+            // retorna 0 -> primeiro bot�o | 1 -> segundo bot�o | 2 -> terceiro bot�o
+            int resposta_usuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja APAGAR este Aluno ?");
+
+            if (resposta_usuario == 0) {// clicou em SIM
+
+                // envia os dados para o Controlador processar
+                if (this.controlador.Apagar(id)) {
+
+                    // limpa os campos
+                    this.c_nome.setText("");
+                    this.c_endereco.setText("");
+                    this.c_telefone.setText("");
+                    this.c_data_de_nascimento.setText("");
+                    JOptionPane.showMessageDialog(rootPane, "Aluno Apagado com Sucesso!");
+
+                }
+
+            }
+
+            System.out.println(this.controlador.getMinhaLista().toString());
+
+        } catch (Mensagens erro) {
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        } finally {
+            // atualiza a tabela.
+            carregaTabela();
         }
-        System.out.println(this.controlador.getMinhaLista().toString());
-        // atualiza a tabela.
-        carregaTabela();
+
     }//GEN-LAST:event_b_apagarActionPerformed
 
     /**
