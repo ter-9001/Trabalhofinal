@@ -244,13 +244,13 @@ public class PacienteSelecionado extends javax.swing.JFrame {
             // validando dados da interface gr�fica.
             int id = 0;
             if (this.jTableAlunos.getSelectedRow() == -1) {
-                throw new Mensagens("Primeiro Selecione um Aluno para APAGAR");
+                throw new Mensagens("Primeiro Selecione um Paciente para APAGAR");
             } else {
                 id = Integer.parseInt(this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 0).toString());
             }
 
             // retorna 0 -> primeiro bot�o | 1 -> segundo bot�o | 2 -> terceiro bot�o
-            int resposta_usuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja APAGAR este Aluno ?");
+            int resposta_usuario = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja APAGAR este Paciente ?");
 
             if (resposta_usuario == 0) {// clicou em SIM
 
@@ -262,7 +262,7 @@ public class PacienteSelecionado extends javax.swing.JFrame {
                     this.c_endereco.setText("");
                     this.c_telefone.setText("");
                     this.c_data_de_nascimento.setText("");
-                    JOptionPane.showMessageDialog(rootPane, "Aluno Apagado com Sucesso!");
+                    JOptionPane.showMessageDialog(rootPane, "Paciente Apagado com Sucesso!");
 
                 }
 
