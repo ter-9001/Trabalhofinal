@@ -204,15 +204,15 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
 
             if (this.CPF.getText().length() != 11 ) {
-                throw new Mensagens("CPF deve possuir 10 caracteres");
+                throw new Mensagens("CPF deve possuir 11 caracteres");
             } else {
                 
                  teste = Long.parseLong(this.CPF.getText());
                  CPF1 = this.CPF.getText();
             }
 
-            if (this.Telefone.getText().length() < 6) {
-                throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
+            if (this.Telefone.getText().length() < 8) {
+                throw new Mensagens("Telefone deve conter ao menos 8 caracteres.");
             } else {
                 teste = Long.parseLong(this.Telefone.getText());
                 telefone = this.Telefone.getText();

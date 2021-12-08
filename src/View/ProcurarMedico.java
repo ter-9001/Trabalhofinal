@@ -73,7 +73,7 @@ public class ProcurarMedico extends javax.swing.JFrame {
 
         jLabel4.setText("ou");
 
-        Procurar.setText("Procurar");
+        Procurar.setText("Ver todos");
         Procurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ProcurarActionPerformed(evt);

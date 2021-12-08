@@ -54,7 +54,7 @@ public class ProcurarPaciente extends javax.swing.JFrame {
 
         jLabel2.setText("Digite o nome");
 
-        Procurar.setText("Procurar");
+        Procurar.setText("Ver todos");
         Procurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ProcurarActionPerformed(evt);

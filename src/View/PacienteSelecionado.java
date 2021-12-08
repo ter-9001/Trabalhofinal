@@ -165,6 +165,7 @@ public class PacienteSelecionado extends javax.swing.JFrame {
             String endereço = "";
             String telefone = "";
             String data_de_nascimento = "";
+            Long testes;
 
             if (this.c_nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
@@ -173,20 +174,23 @@ public class PacienteSelecionado extends javax.swing.JFrame {
             }
 
             if (this.c_endereco.getText().length() <= 0) {
-                throw new Mensagens("Idade deve ser n�mero e maior que zero.");
+                throw new Mensagens("Endereço deve conter ao menos 2 caracteres.");
             } else {
                 endereço = this.c_endereco.getText();
             }
 
             if (this.c_telefone.getText().length() < 2) {
-                throw new Mensagens("Curso deve conter ao menos 2 caracteres.");
+                throw new Mensagens("Telefone deve conter ao menos 2 caracteres.");
             } else {
+                testes = Long.parseLong(this.c_telefone.getText());
                 telefone = this.c_telefone.getText();
             }
 
-            if (this.c_data_de_nascimento.getText().length() <= 0) {
-                throw new Mensagens("Fase deve ser n�mero e maior que zero.");
+            if (this.c_data_de_nascimento.getText().length() != 8) {
+                throw new Mensagens("Data deve ter 8 caracteres");
             } else {
+                
+                testes = Long.parseLong(this.c_telefone.getText());
                 data_de_nascimento = this.c_data_de_nascimento.getText();
             }
 

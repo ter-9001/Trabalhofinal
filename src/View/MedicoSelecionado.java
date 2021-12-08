@@ -178,7 +178,7 @@ public class MedicoSelecionado extends javax.swing.JFrame {
             String telefone = "";
             String periodo_de_atendimento = "";
             String especialidade = "";
-            int teste;
+            Long teste;
             
             if (this.c_nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
@@ -189,8 +189,8 @@ public class MedicoSelecionado extends javax.swing.JFrame {
             if (this.c_CRM.getText().length() <= 2) {
                 throw new Mensagens("CRM deve possuir ao menos 2 caracteres numéricos.");
             } else {
+               teste = Long.parseLong(this.c_CRM.getText());
                crm = this.c_CRM.getText();
-               //teste = Integer.parseInt(this.c_CRM.getText());
             }
             
             
@@ -203,6 +203,8 @@ public class MedicoSelecionado extends javax.swing.JFrame {
             if (this.c_telefone.getText().length() < 2) {
                 throw new Mensagens("Telefone deve conter ao menos 2 caracteres numéricos.");
             } else {
+                
+                teste = Long.parseLong(this.c_CRM.getText());
                 telefone = this.c_telefone.getText();
             }
 

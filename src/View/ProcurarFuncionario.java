@@ -68,7 +68,7 @@ public class ProcurarFuncionario extends javax.swing.JFrame {
 
         jLabel4.setText("ou");
 
-        Procurar.setText("Procurar");
+        Procurar.setText("Ver Todos");
         Procurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ProcurarActionPerformed(evt);

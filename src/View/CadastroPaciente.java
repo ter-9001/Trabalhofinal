@@ -168,8 +168,8 @@ public class CadastroPaciente extends javax.swing.JFrame {
                     endereço1 = this.Endereço.getText();
                 }
                 
-                if (this.Telefone.getText().length() < 6) {
-                throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
+                if (this.Telefone.getText().length() < 8) {
+                throw new Mensagens("Telefone deve conter ao menos 8 caracteres.");
                 } else {
                     telefone = this.Telefone.getText();
                 }
@@ -205,7 +205,13 @@ public class CadastroPaciente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Deve-se digitar somente digitos numericos \n nos campos: Telefone e Data de Nascimento");
             } catch (SQLException ex) {
             
-        } 
+                 JOptionPane.showMessageDialog(null, "Erro na inserção de dados verifique se estão corretos");
+                
+            }catch( RuntimeException ex){
+            
+                JOptionPane.showMessageDialog(null, "Erro na inserção de dados verifique se estão corretos");
+                
+            } 
             
             
 

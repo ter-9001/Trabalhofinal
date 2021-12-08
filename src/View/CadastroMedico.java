@@ -203,7 +203,7 @@ public class CadastroMedico extends javax.swing.JFrame {
             
             
             if (this.Telefone.getText().length() < 6) {
-                throw new Mensagens("Telefone deve conter ao menos 6 caracteres.");
+                throw new Mensagens("Telefone deve conter ao menos 8 caracteres.");
             } else {
                 teste = Integer.parseInt(this.Telefone.getText());
                 telefone = this.Telefone.getText();
