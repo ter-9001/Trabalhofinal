@@ -254,8 +254,8 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
                 cpf = this.c_cpf.getText();
             }
 
-            if (this.c_telefone.getText().length() != 8) {
-                throw new Mensagens("Telefone deve conter 8 caracteres.");
+            if (this.c_telefone.getText().length() < 8) {
+                throw new Mensagens("Telefone deve  conter ao mesmo 8 caracteres.");
             } else {
                 telefone = this.c_telefone.getText();
             }

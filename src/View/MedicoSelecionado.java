@@ -290,6 +290,8 @@ public class MedicoSelecionado extends javax.swing.JFrame {
                     this.c_CRM.setText("");
                     this.c_especialidade.setText("");
                     this.c_periodo_de_atendimento.setText("");
+                    this.c_telefone.setText("");
+    
                     JOptionPane.showMessageDialog(rootPane, "Médico Apagado com Sucesso!");
 
                 }
