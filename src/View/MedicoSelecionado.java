@@ -181,7 +181,7 @@ public class MedicoSelecionado extends javax.swing.JFrame {
             Long teste;
 
             if (this.jTableAlunos.getSelectedRow() == -1) {
-                throw new Mensagens("Primeiro a Tabela para Alterar");
+                throw new Mensagens("Primeiro Selecione a Tabela para Alterar");
             } else {
                 id = Integer.parseInt(this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 0).toString());
             }

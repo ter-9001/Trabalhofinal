@@ -217,7 +217,7 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
             long teste;
             
             if (this.jTableAlunos.getSelectedRow() == -1) {
-                throw new Mensagens("Primeiro selecione a Tabela para Alterar");
+                throw new Mensagens("Primeiro Selecione a Tabela para Alterar");
             } else {
                 id = Integer.parseInt(this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 0).toString());
             }

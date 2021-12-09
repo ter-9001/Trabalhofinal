@@ -234,7 +234,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
             
             if (this.CEP.getText().length() < 2) {
-                throw new Mensagens("Telefone deve conter ao menos 2 caracteres.");
+                throw new Mensagens("CEP deve conter ao menos 2 caracteres.");
             } else {
                 
                  teste = Long.parseLong(this.CEP.getText());
@@ -243,7 +243,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
             
             if (this.ponto_de_referencia.getText().length() < 2) {
-                throw new Mensagens("Rua deve ter ao menos 2 caracteres");
+                throw new Mensagens("Ponto de Referência deve ter ao menos 2 caracteres");
             } else {
                 pontoDeReferencia = this.ponto_de_referencia.getText();
             }
