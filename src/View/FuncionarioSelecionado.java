@@ -293,7 +293,11 @@ public class FuncionarioSelecionado extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         } catch (NumberFormatException erro2) {
             JOptionPane.showMessageDialog(null, "Informe um número.");
-        } finally {
+        }catch(RuntimeException ex)
+        {
+             JOptionPane.showMessageDialog(null, "Algum dado foi inserido errado!");
+        }
+        finally {
             carregaTabela(); // atualiza a tabela.
         }
     }//GEN-LAST:event_b_alterarActionPerformed
