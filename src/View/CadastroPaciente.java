@@ -62,7 +62,7 @@ public class CadastroPaciente extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Data de Nascimento (DDMMYYYY)");
+        jLabel4.setText("Data de Nascimento (YYYYMMDD)");
 
         nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

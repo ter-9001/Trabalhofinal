@@ -95,7 +95,7 @@ public class PacienteSelecionado extends javax.swing.JFrame {
 
         jLabel3.setText("Telefone:");
 
-        jLabel4.setText("Data de Nascimento:");
+        jLabel4.setText("Data de Nascimento: (YYYYMMDD)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -167,6 +167,13 @@ public class PacienteSelecionado extends javax.swing.JFrame {
             String data_de_nascimento = "";
             Long testes;
 
+            if (this.jTableAlunos.getSelectedRow() == -1) {
+                throw new Mensagens("Primeiro a Tabela para Alterar");
+            } else {
+                id = Integer.parseInt(this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 0).toString());
+            }
+
+            
             if (this.c_nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
             } else {
@@ -194,11 +201,6 @@ public class PacienteSelecionado extends javax.swing.JFrame {
                 data_de_nascimento = this.c_data_de_nascimento.getText();
             }
 
-            if (this.jTableAlunos.getSelectedRow() == -1) {
-                throw new Mensagens("Primeiro a Tabela para Alterar");
-            } else {
-                id = Integer.parseInt(this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 0).toString());
-            }
             
             // envia os dados para o Controlador processar
             if (this.controlador.Editar(nome, endereço, id ,telefone,  data_de_nascimento)) {
@@ -228,11 +230,13 @@ public class PacienteSelecionado extends javax.swing.JFrame {
             String nome = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 1).toString();
             String endereco = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 2).toString();
             String telefone = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 3).toString();
-            String periodo_de_atendimento = this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 4).toString();
+            String periodo_de_atendimento = (this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 4).toString()).
+                    replaceAll("-", "");
 
             this.c_nome.setText(nome);
             this.c_endereco.setText(endereco);
             this.c_telefone.setText(telefone);
+
             this.c_data_de_nascimento.setText(periodo_de_atendimento);
 
         }

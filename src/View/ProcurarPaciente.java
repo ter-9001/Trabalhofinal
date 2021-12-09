@@ -98,17 +98,8 @@ public class ProcurarPaciente extends javax.swing.JFrame {
 
     private void ProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcurarActionPerformed
 
-        if(nome.getSelectedItem().toString() != "selecione")
-        {
-            
                     PacienteSelecionado ps = new PacienteSelecionado();
                     ps.setVisible(true);
-
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Selecione uma opção!");
-        }
     }//GEN-LAST:event_ProcurarActionPerformed
 
     /**

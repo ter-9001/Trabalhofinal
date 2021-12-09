@@ -147,42 +147,8 @@ public class ProcurarMedico extends javax.swing.JFrame {
     private void ProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcurarActionPerformed
 
         
-        if(CRM.getSelectedItem().toString() != "selecione" && nome.getSelectedItem().toString() != "selecione")
-        {
-            JOptionPane.showMessageDialog(null, "Selecione CRM ou Nome \n (Não é possível chamar os dois)");
-            return;
-        }
-        
-        
-        if(CRM.getSelectedItem().toString() == "selecione" && nome.getSelectedItem().toString() == "selecione")
-        {
-            JOptionPane.showMessageDialog(null, "Selecione CRM ou Nome");
-            return;
-        }
-        
-        if(CRM.getSelectedItem().toString() != "selecione")
-        {
                     MedicoSelecionado ms = new MedicoSelecionado();
                     ms.setVisible(true);
-            
-            
-            
-        
-          
-        }
-        
-        
-        
-        if(nome.getSelectedItem().toString() != "selecione")
-        {
-                    MedicoSelecionado ms = new MedicoSelecionado();
-                    ms.setVisible(true);
-        }
-        
-        
-        
-        
-        
     }//GEN-LAST:event_ProcurarActionPerformed
 
     /**

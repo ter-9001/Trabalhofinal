@@ -87,7 +87,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Data de Nascimento (DDMMYYYY)"/>
+        <Property name="text" type="java.lang.String" value="Data de Nascimento (YYYYMMDD)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nome">

@@ -179,6 +179,13 @@ public class MedicoSelecionado extends javax.swing.JFrame {
             String periodo_de_atendimento = "";
             String especialidade = "";
             Long teste;
+
+            if (this.jTableAlunos.getSelectedRow() == -1) {
+                throw new Mensagens("Primeiro a Tabela para Alterar");
+            } else {
+                id = Integer.parseInt(this.jTableAlunos.getValueAt(this.jTableAlunos.getSelectedRow(), 0).toString());
+            }
+    
             
             if (this.c_nome.getText().length() < 2) {
                 throw new Mensagens("Nome deve conter ao menos 2 caracteres.");
@@ -271,6 +278,7 @@ public class MedicoSelecionado extends javax.swing.JFrame {
          try {
             // validando dados da interface gr�fica.
             int id = 0;
+
             if (this.jTableAlunos.getSelectedRow() == -1) {
                 throw new Mensagens("Médico Selecione um Paciente para APAGAR");
             } else {

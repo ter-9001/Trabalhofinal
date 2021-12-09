@@ -123,29 +123,8 @@ public class ProcurarFuncionario extends javax.swing.JFrame {
 
     private void ProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcurarActionPerformed
 
-        if(CPF.getSelectedItem().toString() != "selecione" && nome.getSelectedItem().toString() != "selecione")
-        {
-            JOptionPane.showMessageDialog(null, "Selecione CRM ou Nome \n (Não é possível chamar os dois)");
-            return;
-        }
-
-        if(CPF.getSelectedItem().toString() == "selecione" && nome.getSelectedItem().toString() == "selecione")
-        {
-            JOptionPane.showMessageDialog(null, "Selecione CRM ou Nome");
-            return;
-        }
-
-        if(CPF.getSelectedItem().toString() != "selecione")
-        {
                     FuncionarioSelecionado fs = new FuncionarioSelecionado();
                     fs.setVisible(true);
-        }
-
-        if(nome.getSelectedItem().toString() != "selecione")
-        {
-                    FuncionarioSelecionado fs = new FuncionarioSelecionado();
-                    fs.setVisible(true);
-        }
 
     }//GEN-LAST:event_ProcurarActionPerformed
 
